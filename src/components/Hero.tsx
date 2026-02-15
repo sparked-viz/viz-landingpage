@@ -19,12 +19,9 @@ export const Hero: React.FC = () => {
                     className="text-5xl md:text-7xl font-bold leading-tight mb-8"
                     style={{ color: 'var(--color-text)' }}
                 >
-                    The best place to{' '}
-                    <span className="font-handwritten text-primary italic text-6xl md:text-8xl">learn</span>{' '}
-                    and{' '}
-                    <span className="font-handwritten text-secondary text-6xl md:text-8xl">play</span>
+                    Visual Problem Solving{' '}
                     <br />
-                    for kids
+                    Infrastructure for <span className="font-handwritten text-primary italic text-6xl md:text-8xl">STEM</span>
                 </motion.h1>
 
                 <motion.p
@@ -33,15 +30,15 @@ export const Hero: React.FC = () => {
                     transition={{ duration: 0.8, delay: 0.2 }}
                     className="text-lg md:text-xl text-dim max-w-2xl leading-relaxed mb-10"
                 >
-                    Discover thousands of fun and interactive learning activities
-                    to support your child's growth and learning process.
+                    Stop explaining. Start showing.<br />
+                    Build mental models, not just solutions.
                 </motion.p>
 
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.3 }}
-                    className="mb-16"
+                    className="flex flex-col items-center gap-4 mb-16"
                 >
                     <a
                         href="https://docs.google.com/forms/d/e/1FAIpQLScwqhm8jLM7uBr26liafa6tPc8FjcSbPfH3zZo2Wyg7a3hrtg/viewform?usp=header"
@@ -49,9 +46,10 @@ export const Hero: React.FC = () => {
                         rel="noopener noreferrer"
                         className="btn btn-primary text-lg px-12 py-4 inline-flex items-center gap-3"
                     >
-                        Get started
+                        Enroll as Early Adopter
                         <ArrowRight className="w-5 h-5" />
                     </a>
+                    <p className="text-sm text-dim/60 font-medium">Limited early access spots available</p>
                 </motion.div>
 
                 {/* Video */}
