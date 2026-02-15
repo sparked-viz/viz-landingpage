@@ -40,7 +40,7 @@ export const Hero: React.FC = () => {
                     transition={{ duration: 0.8, delay: 0.3 }}
                     className="flex flex-col items-center gap-4 mb-24"
                 >
-                    <a href="#contact" className="btn btn-primary text-xl px-10 py-5 shadow-lg shadow-primary/25 hover:shadow-primary/40">
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLScwqhm8jLM7uBr26liafa6tPc8FjcSbPfH3zZo2Wyg7a3hrtg/viewform?usp=header" target="_blank" rel="noopener noreferrer" className="btn btn-primary text-xl px-10 py-5 shadow-lg shadow-primary/25 hover:shadow-primary/40">
                         Enroll as Early Adopter
                         <ArrowRight className="w-5 h-5" />
                     </a>

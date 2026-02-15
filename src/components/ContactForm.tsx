@@ -34,7 +34,7 @@ export const ContactForm: React.FC = () => {
 
                     <div className="flex justify-center">
                         <a
-                            href="https://forms.google.com/changethis"
+                            href="https://docs.google.com/forms/d/e/1FAIpQLScwqhm8jLM7uBr26liafa6tPc8FjcSbPfH3zZo2Wyg7a3hrtg/viewform?usp=header"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="group"
