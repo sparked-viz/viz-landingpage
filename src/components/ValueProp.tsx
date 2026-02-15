@@ -51,7 +51,7 @@ export const ValueProp: React.FC = () => {
                     </motion.p>
                 </div>
 
-                <div className="max-w-5xl mx-auto space-y-12 sm:space-y-16 px-4">
+                <div className="max-w-5xl mx-auto space-y-8 sm:space-y-12 md:space-y-16 px-4">
                     {features.map((feature, index) => (
                         <motion.div
                             key={index}
@@ -59,12 +59,12 @@ export const ValueProp: React.FC = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.15 }}
-                            className={`${feature.bgColor} ${feature.borderColor} border-3 sm:border-4 rounded-2xl sm:rounded-3xl p-8 sm:p-12 md:p-16 relative overflow-hidden`}
+                            className={`${feature.bgColor} ${feature.borderColor} border-3 sm:border-4 rounded-2xl sm:rounded-3xl p-6 sm:p-10 md:p-16 relative overflow-hidden`}
                         >
                             {/* Background glow effect */}
                             <div className="absolute -inset-8 bg-gradient-to-r from-primary/10 via-transparent to-primary/10 blur-3xl opacity-50 pointer-events-none"></div>
 
-                            <div className="relative text-center space-y-6 sm:space-y-8">
+                            <div className="relative text-center space-y-4 sm:space-y-6 md:space-y-8">
                                 {/* Icon */}
                                 <div className="flex justify-center">
                                     <div className={`w-16 sm:w-20 h-16 sm:h-20 rounded-2xl ${index === 1 ? 'bg-white/20' : 'bg-white'} flex items-center justify-center shadow-lg`}>
@@ -73,15 +73,15 @@ export const ValueProp: React.FC = () => {
                                 </div>
 
                                 {/* Title */}
-                                <h3 className={`text-3xl sm:text-4xl md:text-5xl font-bold ${feature.textColor || 'text-gray-800'}`}>
+                                <h3 className={`text-2xl sm:text-3xl md:text-5xl font-bold ${feature.textColor || 'text-gray-800'}`}>
                                     {feature.title}
                                 </h3>
 
                                 {/* Benefits */}
-                                <ul className="space-y-4 sm:space-y-5 max-w-3xl mx-auto">
+                                <ul className="space-y-3 sm:space-y-4 md:space-y-5 max-w-3xl mx-auto">
                                     {feature.benefits.map((benefit, i) => (
-                                        <li key={i} className={`text-lg sm:text-xl md:text-2xl leading-relaxed flex items-center justify-center gap-3 sm:gap-4 ${feature.textColor ? 'text-white/90' : 'text-gray-700'}`}>
-                                            <span className={`text-2xl sm:text-3xl ${feature.textColor ? 'text-white' : 'text-primary'}`}>•</span>
+                                        <li key={i} className={`text-base sm:text-lg md:text-2xl leading-relaxed flex items-center justify-center gap-2 sm:gap-3 md:gap-4 ${feature.textColor ? 'text-white/90' : 'text-gray-700'}`}>
+                                            <span className={`text-xl sm:text-2xl md:text-3xl ${feature.textColor ? 'text-white' : 'text-primary'}`}>•</span>
                                             <span>{benefit}</span>
                                         </li>
                                     ))}
