@@ -24,12 +24,12 @@ export const ContactForm: React.FC = () => {
                         <Sparkles className="w-10 h-10 text-primary" />
                     </motion.div>
 
-                    <h2 className="text-4xl md:text-6xl font-bold mb-6">
+                    <h2 className="text-4xl md:text-6xl font-bold mb-6" style={{ color: 'var(--color-text)' }}>
                         Transform How You{' '}
                         <span className="font-handwritten text-primary italic">Teach</span>{' '}
                         Physics
                     </h2>
-                    <p className="text-dim text-xl mb-10 max-w-2xl mx-auto leading-relaxed">
+                    <p className="text-xl mb-10 max-w-2xl mx-auto leading-relaxed" style={{ color: 'var(--color-text-dim)' }}>
                         Join the early cohort shaping the future of visual problem solving.
                     </p>
 
