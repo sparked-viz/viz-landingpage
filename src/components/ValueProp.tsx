@@ -4,7 +4,7 @@ import { Zap, Brain } from 'lucide-react';
 
 const features = [
     {
-        icon: <Zap className="w-10 h-10 text-purple-600" />,
+        icon: <Zap className="w-12 h-12 text-purple-600" />,
         title: "Short-Term Value",
         benefits: [
             "Clarity in problem visualization",
@@ -15,7 +15,7 @@ const features = [
         borderColor: "border-purple-300",
     },
     {
-        icon: <Brain className="w-10 h-10 text-white" />,
+        icon: <Brain className="w-12 h-12 text-white" />,
         title: "Long-Term Value",
         benefits: [
             "Strong mental model formation",
@@ -32,7 +32,7 @@ export const ValueProp: React.FC = () => {
     return (
         <section className="section relative py-24 bg-gradient-to-b from-purple-50 to-white">
             <div className="container">
-                <div className="text-center mb-16">
+                <div className="text-center mb-20">
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -51,7 +51,7 @@ export const ValueProp: React.FC = () => {
                     </motion.p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <div className="max-w-5xl mx-auto space-y-16">
                     {features.map((feature, index) => (
                         <motion.div
                             key={index}
@@ -59,29 +59,39 @@ export const ValueProp: React.FC = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.15 }}
-                            className={`${feature.bgColor} ${feature.borderColor} border-4 rounded-3xl p-10 relative overflow-hidden transform hover:-translate-y-2 transition-all duration-300 hover:shadow-2xl ${index === 0 ? 'md:-rotate-1' : 'md:rotate-1'}`}
+                            className={`${feature.bgColor} ${feature.borderColor} border-4 rounded-3xl p-12 md:p-16 relative overflow-hidden`}
                         >
-                            {/* Icon */}
-                            <div className="mb-6">
-                                <div className={`w-16 h-16 rounded-2xl ${index === 1 ? 'bg-white/20' : 'bg-white'} flex items-center justify-center shadow-lg`}>
-                                    {feature.icon}
+                            {/* Background glow effect */}
+                            <div className="absolute -inset-8 bg-gradient-to-r from-primary/10 via-transparent to-primary/10 blur-3xl opacity-50 pointer-events-none"></div>
+
+                            <div className="relative text-center space-y-8">
+                                {/* Icon */}
+                                <div className="flex justify-center">
+                                    <div className={`w-20 h-20 rounded-2xl ${index === 1 ? 'bg-white/20' : 'bg-white'} flex items-center justify-center shadow-lg`}>
+                                        {feature.icon}
+                                    </div>
                                 </div>
+
+                                {/* Title */}
+                                <h3 className={`text-4xl md:text-5xl font-bold ${feature.textColor || 'text-gray-800'}`}>
+                                    {feature.title}
+                                </h3>
+
+                                {/* Benefits */}
+                                <ul className="space-y-5 max-w-3xl mx-auto">
+                                    {feature.benefits.map((benefit, i) => (
+                                        <li key={i} className={`text-xl md:text-2xl leading-relaxed flex items-center justify-center gap-4 ${feature.textColor ? 'text-white/90' : 'text-gray-700'}`}>
+                                            <span className={`text-3xl ${feature.textColor ? 'text-white' : 'text-primary'}`}>•</span>
+                                            <span>{benefit}</span>
+                                        </li>
+                                    ))}
+                                </ul>
                             </div>
 
-                            {/* Title */}
-                            <h3 className={`text-3xl md:text-4xl font-bold mb-6 ${feature.textColor || 'text-gray-800'}`}>
-                                {feature.title}
-                            </h3>
-
-                            {/* Benefits */}
-                            <ul className="space-y-4">
-                                {feature.benefits.map((benefit, i) => (
-                                    <li key={i} className={`text-base md:text-lg leading-relaxed flex items-start gap-3 ${feature.textColor ? 'text-white/90' : 'text-gray-700'}`}>
-                                        <span className={`text-2xl ${feature.textColor ? 'text-white' : 'text-primary'}`}>•</span>
-                                        <span>{benefit}</span>
-                                    </li>
-                                ))}
-                            </ul>
+                            {/* Separator line (only for first item) */}
+                            {index === 0 && (
+                                <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-transparent via-purple-300 to-transparent rounded-full"></div>
+                            )}
                         </motion.div>
                     ))}
                 </div>
