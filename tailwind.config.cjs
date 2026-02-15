@@ -7,16 +7,26 @@ module.exports = {
     theme: {
         extend: {
             colors: {
-                bg: '#030014',
-                surface: '#0f172a',
-                primary: '#7000df',
-                secondary: '#00f0ff',
-                accent: '#ff0055',
-                dim: '#94a3b8',
+                bg: '#F5F3FF',
+                surface: '#E9E4FF',
+                primary: '#7C3AED',
+                secondary: '#FCD34D',
+                accent: '#F472B6',
+                purple: {
+                    400: '#A78BFA',
+                    500: '#8B5CF6',
+                    600: '#7C3AED',
+                },
+                yellow: {
+                    400: '#FCD34D',
+                    500: '#FBBF24',
+                },
+                dim: '#4B5563',
             },
-            backgroundImage: {
-                'grid-pattern': "linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px)",
-            }
+            fontFamily: {
+                sans: ['Poppins', 'sans-serif'],
+                handwritten: ['Caveat', 'cursive'],
+            },
         },
     },
     plugins: [],
