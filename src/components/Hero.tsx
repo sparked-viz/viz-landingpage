@@ -16,19 +16,19 @@ export const Hero: React.FC = () => {
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.1 }}
-                    className="text-5xl md:text-7xl font-bold leading-tight mb-8"
+                    className="text-4xl sm:text-5xl md:text-7xl font-bold leading-tight mb-6 px-4"
                     style={{ color: 'var(--color-text)' }}
                 >
                     Visual Problem Solving{' '}
                     <br />
-                    Infrastructure for <span className="font-handwritten text-primary italic text-6xl md:text-8xl">STEM</span>
+                    Infrastructure for <span className="font-handwritten text-primary italic text-5xl sm:text-6xl md:text-8xl">STEM</span>
                 </motion.h1>
 
                 <motion.p
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.2 }}
-                    className="text-lg md:text-xl text-dim max-w-2xl leading-relaxed mb-10"
+                    className="text-base sm:text-lg md:text-xl text-dim max-w-2xl leading-relaxed mb-8 px-4"
                 >
                     Stop explaining. Start showing.<br />
                     Build mental models, not just solutions.
