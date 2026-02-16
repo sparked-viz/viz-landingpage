@@ -30,7 +30,6 @@ export const Hero: React.FC = () => {
                     transition={{ duration: 0.8, delay: 0.2 }}
                     className="text-base sm:text-lg md:text-xl text-dim max-w-2xl leading-relaxed mb-8 px-4"
                 >
-                    Stop explaining. Start showing.<br />
                     Build mental models, not just solutions.
                 </motion.p>
 
@@ -41,12 +40,12 @@ export const Hero: React.FC = () => {
                     className="flex flex-col items-center gap-4 mb-16"
                 >
                     <a
-                        href="https://docs.google.com/forms/d/e/1FAIpQLScwqhm8jLM7uBr26liafa6tPc8FjcSbPfH3zZo2Wyg7a3hrtg/viewform?usp=header"
+                        href="https://docs.google.com/forms/d/1eVGQJjOtWJx2hYPDeiRs1JOgj4pngSoxKI5oN7diiX4/edit"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="btn btn-primary text-lg px-12 py-4 inline-flex items-center gap-3"
                     >
-                        Enroll as Early Adopter
+                        Join as a Creator Partner
                         <ArrowRight className="w-5 h-5" />
                     </a>
                     <p className="text-sm text-dim/60 font-medium">Limited early access spots available</p>

@@ -35,13 +35,13 @@ export const ContactForm: React.FC = () => {
 
                     <div className="flex justify-center">
                         <a
-                            href="https://docs.google.com/forms/d/e/1FAIpQLScwqhm8jLM7uBr26liafa6tPc8FjcSbPfH3zZo2Wyg7a3hrtg/viewform?usp=header"
+                            href="https://docs.google.com/forms/d/e/1FAIpQLScnN4HCgpU_5dBix_IIC689a3y0PmYVR-H3FkKQy9Snt2Ds9w/viewform?usp=publish-editor"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="group"
                         >
                             <button className="btn btn-primary text-base sm:text-lg md:text-xl px-8 sm:px-10 md:px-12 py-4 sm:py-5 rounded-full flex items-center gap-3 sm:gap-4 group-hover:shadow-2xl transition-shadow duration-300">
-                                Enroll as Early Adopter
+                                Get Beta Access
                                 <ArrowRight className="w-5 sm:w-6 h-5 sm:h-6 group-hover:translate-x-1 transition-transform" />
                             </button>
                         </a>
