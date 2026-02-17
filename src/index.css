@@ -94,6 +94,17 @@ a {
   transform: translateY(-2px);
 }
 
+.btn-secondary-yellow {
+  background: linear-gradient(135deg, #FCD34D, #F59E0B);
+  color: #78350F;
+  box-shadow: 0 4px 20px rgba(252, 211, 77, 0.4);
+}
+
+.btn-secondary-yellow:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 30px rgba(252, 211, 77, 0.5);
+}
+
 /* Utilities */
 .container {
   max-width: 1200px;

@@ -39,15 +39,26 @@ export const Hero: React.FC = () => {
                     transition={{ duration: 0.8, delay: 0.3 }}
                     className="flex flex-col items-center gap-4 mb-16"
                 >
-                    <a
-                        href="https://docs.google.com/forms/d/1eVGQJjOtWJx2hYPDeiRs1JOgj4pngSoxKI5oN7diiX4/edit"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="btn btn-primary text-lg px-12 py-4 inline-flex items-center gap-3"
-                    >
-                        Join as a Creator Partner
-                        <ArrowRight className="w-5 h-5" />
-                    </a>
+                    <div className="flex flex-col sm:flex-row items-center gap-4">
+                        <a
+                            href="https://docs.google.com/forms/d/1eVGQJjOtWJx2hYPDeiRs1JOgj4pngSoxKI5oN7diiX4/edit"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="btn btn-primary text-lg px-12 py-4 inline-flex items-center gap-3"
+                        >
+                            Join as a Creator Partner
+                            <ArrowRight className="w-5 h-5" />
+                        </a>
+                        <a
+                            href="https://docs.google.com/forms/d/e/1FAIpQLSdGuo9L7pk76kpYWZQxzRVHa3fPZtvq231rapR8o2VLKGXIxA/viewform?usp=header"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="btn btn-secondary-yellow text-lg px-12 py-4 inline-flex items-center gap-3"
+                        >
+                            Join as Institute Partner
+                            <ArrowRight className="w-5 h-5" />
+                        </a>
+                    </div>
                     <p className="text-sm text-dim/60 font-medium">Limited early access spots available</p>
                 </motion.div>
 
