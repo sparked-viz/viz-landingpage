@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Sparkles } from 'lucide-react';
+import { trackCTAClick } from '../analytics';
 
 export const ContactForm: React.FC = () => {
     return (
@@ -39,6 +40,7 @@ export const ContactForm: React.FC = () => {
                             target="_blank"
                             rel="noopener noreferrer"
                             className="group"
+                            onClick={() => trackCTAClick('Get Beta Access')}
                         >
                             <button className="btn btn-primary text-base sm:text-lg md:text-xl px-8 sm:px-10 md:px-12 py-4 sm:py-5 rounded-full flex items-center gap-3 sm:gap-4 group-hover:shadow-2xl transition-shadow duration-300">
                                 Get Beta Access

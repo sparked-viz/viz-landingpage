@@ -1,7 +1,49 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { trackVideoPlay, trackVideoWatchTime } from '../analytics';
 
 export const DemoSection: React.FC = () => {
+    const videoRef = useRef<HTMLVideoElement>(null);
+    const lastReportedSecond = useRef(0);
+
+    useEffect(() => {
+        const video = videoRef.current;
+        if (!video) return;
+
+        const videoName = 'Demo Section Video';
+
+        const handlePlay = () => {
+            trackVideoPlay(videoName);
+        };
+
+        const handleTimeUpdate = () => {
+            const currentSecond = Math.floor(video.currentTime);
+            if (currentSecond > 0 && currentSecond % 10 === 0 && currentSecond !== lastReportedSecond.current) {
+                lastReportedSecond.current = currentSecond;
+                trackVideoWatchTime(videoName, 10);
+            }
+        };
+
+        const handlePauseOrEnd = () => {
+            const remainder = Math.floor(video.currentTime) % 10;
+            if (remainder > 0) {
+                trackVideoWatchTime(videoName, remainder);
+            }
+        };
+
+        video.addEventListener('play', handlePlay);
+        video.addEventListener('timeupdate', handleTimeUpdate);
+        video.addEventListener('pause', handlePauseOrEnd);
+        video.addEventListener('ended', handlePauseOrEnd);
+
+        return () => {
+            video.removeEventListener('play', handlePlay);
+            video.removeEventListener('timeupdate', handleTimeUpdate);
+            video.removeEventListener('pause', handlePauseOrEnd);
+            video.removeEventListener('ended', handlePauseOrEnd);
+        };
+    }, []);
+
     return (
         <section className="section overflow-hidden py-24 bg-white">
             <div className="container">
@@ -57,6 +99,7 @@ export const DemoSection: React.FC = () => {
                         className="w-full aspect-video bg-white border-4 border-accent rounded-3xl overflow-hidden hover:shadow-2xl hover:shadow-accent/20 transition-all duration-300"
                     >
                         <video
+                            ref={videoRef}
                             className="w-full h-full object-cover"
                             controls
                             preload="metadata"

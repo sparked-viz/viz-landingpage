@@ -1,8 +1,51 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import { trackCTAClick, trackVideoPlay, trackVideoWatchTime } from '../analytics';
 
 export const Hero: React.FC = () => {
+    const videoRef = useRef<HTMLVideoElement>(null);
+    const lastReportedSecond = useRef(0);
+
+    useEffect(() => {
+        const video = videoRef.current;
+        if (!video) return;
+
+        const videoName = 'Hero Demo Video';
+
+        const handlePlay = () => {
+            trackVideoPlay(videoName);
+        };
+
+        const handleTimeUpdate = () => {
+            const currentSecond = Math.floor(video.currentTime);
+            // Report every 10 seconds of watched time
+            if (currentSecond > 0 && currentSecond % 10 === 0 && currentSecond !== lastReportedSecond.current) {
+                lastReportedSecond.current = currentSecond;
+                trackVideoWatchTime(videoName, 10);
+            }
+        };
+
+        const handlePauseOrEnd = () => {
+            const remainder = Math.floor(video.currentTime) % 10;
+            if (remainder > 0) {
+                trackVideoWatchTime(videoName, remainder);
+            }
+        };
+
+        video.addEventListener('play', handlePlay);
+        video.addEventListener('timeupdate', handleTimeUpdate);
+        video.addEventListener('pause', handlePauseOrEnd);
+        video.addEventListener('ended', handlePauseOrEnd);
+
+        return () => {
+            video.removeEventListener('play', handlePlay);
+            video.removeEventListener('timeupdate', handleTimeUpdate);
+            video.removeEventListener('pause', handlePauseOrEnd);
+            video.removeEventListener('ended', handlePauseOrEnd);
+        };
+    }, []);
+
     return (
         <section className="relative flex flex-col items-center justify-center overflow-hidden pt-20 pb-32 bg-gradient-to-br from-purple-100 via-purple-50 to-yellow-50">
             {/* Decorative Blobs */}
@@ -19,9 +62,9 @@ export const Hero: React.FC = () => {
                     className="text-4xl sm:text-5xl md:text-7xl font-bold leading-tight mb-6 px-4"
                     style={{ color: 'var(--color-text)' }}
                 >
-                    Visual Problem Solving{' '}
+                    Help students understand problems{' '}
                     <br />
-                    Infrastructure for <span className="font-handwritten text-primary italic text-5xl sm:text-6xl md:text-8xl">STEM</span>
+                    more clearly in your <span className="font-handwritten text-primary italic text-5xl sm:text-6xl md:text-8xl">teaching sessions</span>
                 </motion.h1>
 
                 <motion.p
@@ -45,6 +88,7 @@ export const Hero: React.FC = () => {
                             target="_blank"
                             rel="noopener noreferrer"
                             className="btn btn-primary text-lg px-12 py-4 inline-flex items-center gap-3"
+                            onClick={() => trackCTAClick('Join as Creator Partner')}
                         >
                             Join as a Creator Partner
                             <ArrowRight className="w-5 h-5" />
@@ -54,6 +98,7 @@ export const Hero: React.FC = () => {
                             target="_blank"
                             rel="noopener noreferrer"
                             className="btn btn-secondary-yellow text-lg px-12 py-4 inline-flex items-center gap-3"
+                            onClick={() => trackCTAClick('Join as Institute Partner')}
                         >
                             Join as Institute Partner
                             <ArrowRight className="w-5 h-5" />
@@ -70,6 +115,7 @@ export const Hero: React.FC = () => {
                     className="w-full max-w-4xl aspect-video bg-white border-4 border-primary/20 rounded-3xl relative overflow-hidden shadow-2xl shadow-primary/10"
                 >
                     <video
+                        ref={videoRef}
                         className="w-full h-full object-cover rounded-2xl"
                         controls
                         preload="metadata"
