@@ -37,13 +37,13 @@ export const ContactForm: React.FC = () => {
 
                     <div className="flex justify-center">
                         <a
-                            href="https://docs.google.com/forms/d/e/1FAIpQLScnN4HCgpU_5dBix_IIC689a3y0PmYVR-H3FkKQy9Snt2Ds9w/viewform?usp=publish-editor"
+                            href="https://docs.google.com/forms/d/e/1FAIpQLSdGuo9L7pk76kpYWZQxzRVHa3fPZtvq231rapR8o2VLKGXIxA/viewform"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="btn btn-primary text-base sm:text-lg px-8 sm:px-12 py-3 sm:py-4 inline-flex items-center gap-3 w-full sm:w-auto justify-center group"
-                            onClick={() => trackCTAClick('Get Beta Access')}
+                            onClick={() => trackCTAClick('Enroll now')}
                         >
-                            Get Beta Access
+                            Enroll now
                             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </a>
                     </div>

@@ -88,7 +88,7 @@ export const FeatureShowcase: React.FC = () => {
 
                         <div className="relative w-[calc(100%+4rem)] -mx-8 sm:w-full sm:mx-0 rounded-xl sm:rounded-3xl overflow-hidden shadow-2xl border-y-4 sm:border-4 border-white aspect-video bg-gray-900 group">
                             <video
-                                src="/resources/irodov-bolt-lift-1min.mp4"
+                                src="/resources/irodov-bolt-lift-1min-reduced-size.mp4"
                                 autoPlay
                                 loop
                                 muted

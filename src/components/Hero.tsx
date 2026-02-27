@@ -84,23 +84,13 @@ export const Hero: React.FC = () => {
                 >
                     <div className="flex flex-col sm:flex-row items-center gap-4">
                         <a
-                            href="https://docs.google.com/forms/d/1eVGQJjOtWJx2hYPDeiRs1JOgj4pngSoxKI5oN7diiX4/edit"
+                            href="https://docs.google.com/forms/d/e/1FAIpQLSdGuo9L7pk76kpYWZQxzRVHa3fPZtvq231rapR8o2VLKGXIxA/viewform"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="btn btn-primary text-base sm:text-lg px-8 sm:px-12 py-3 sm:py-4 inline-flex items-center gap-3 w-full sm:w-auto justify-center"
-                            onClick={() => trackCTAClick('Join as Creator Partner')}
+                            onClick={() => trackCTAClick('Enroll now')}
                         >
-                            Join as a Creator Partner
-                            <ArrowRight className="w-5 h-5" />
-                        </a>
-                        <a
-                            href="https://docs.google.com/forms/d/e/1FAIpQLSdGuo9L7pk76kpYWZQxzRVHa3fPZtvq231rapR8o2VLKGXIxA/viewform?usp=header"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="btn btn-secondary-yellow text-base sm:text-lg px-8 sm:px-12 py-3 sm:py-4 inline-flex items-center gap-3 w-full sm:w-auto justify-center"
-                            onClick={() => trackCTAClick('Join as Institute Partner')}
-                        >
-                            Join as Institute Partner
+                            Enroll now
                             <ArrowRight className="w-5 h-5" />
                         </a>
                     </div>
@@ -123,7 +113,8 @@ export const Hero: React.FC = () => {
                         playsInline
                         preload="metadata"
                     >
-                        <source src="/youtube_solution_Nishant_jindal.mp4#t=12" type="video/mp4" />
+
+                        <source src="/resources/nishant-jindal-reduced-size.mp4#t=12" type="video/mp4" />
                         Your browser does not support the video tag.
                     </video>
                     <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10 transition-opacity duration-300 group-hover:opacity-0">

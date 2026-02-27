@@ -17,9 +17,9 @@ export const Navbar: React.FC = () => {
 
         <div className="w-px h-6 bg-white/10"></div>
 
-        <a href="#contact">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdGuo9L7pk76kpYWZQxzRVHa3fPZtvq231rapR8o2VLKGXIxA/viewform" target="_blank" rel="noopener noreferrer">
           <button className="bg-primary/20 hover:bg-primary/40 text-primary border border-primary/50 rounded-full px-6 py-2 text-sm font-semibold transition-all hover:scale-105">
-            Enroll Now
+            Enroll now
           </button>
         </a>
       </nav>
