@@ -39,6 +39,22 @@ Add space below hero for embedding a product demo video.
 Include a placeholder container:
 [ Product Demo Video Placeholder – Drive Embed ]
 
+1.5️⃣ Feature Showcase (AI & Explainer)
+Just before "Why Viz".
+
+Heading: AI-Mediated Generation & Persistent Visuals
+Sub-heading: Create models with AI and build deep explanations—all saved securely to your account.
+
+Grid Layout:
+- Card 1: AI creation tool
+  - Desc: Turn problem statements into interactive physical models instantly.
+  - Media: ai-integration.mp4
+- Card 2: Explainor tool
+  - Desc: Use the Explainer tool to break down complex physics into logical, visual steps.
+  - Media: irodov-bolt-lift-1min.mp4
+
+Footer Banner: Seamless Account Sync.
+
 2️⃣ Why Viz (Make this heading BIG and prominent)
 
 Section Heading:

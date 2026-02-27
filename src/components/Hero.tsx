@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Play } from 'lucide-react';
 import { trackCTAClick, trackVideoPlay, trackVideoWatchTime } from '../analytics';
 
 export const Hero: React.FC = () => {
@@ -59,19 +59,19 @@ export const Hero: React.FC = () => {
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.1 }}
-                    className="text-4xl sm:text-5xl md:text-7xl font-bold leading-tight mb-6 px-4"
+                    className="text-2xl sm:text-5xl md:text-7xl font-bold leading-tight mb-6 px-4"
                     style={{ color: 'var(--color-text)' }}
                 >
                     Help students understand problems{' '}
                     <br />
-                    more clearly in your <span className="font-handwritten text-primary italic text-5xl sm:text-6xl md:text-8xl">teaching sessions</span>
+                    more clearly in your <span className="font-handwritten text-primary italic text-3xl sm:text-6xl md:text-8xl">teaching sessions</span>
                 </motion.h1>
 
                 <motion.p
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.2 }}
-                    className="text-base sm:text-lg md:text-xl text-dim max-w-2xl leading-relaxed mb-8 px-4"
+                    className="text-sm sm:text-lg md:text-xl text-dim max-w-2xl leading-relaxed mb-8 px-4"
                 >
                     Build mental models, not just solutions.
                 </motion.p>
@@ -87,7 +87,7 @@ export const Hero: React.FC = () => {
                             href="https://docs.google.com/forms/d/1eVGQJjOtWJx2hYPDeiRs1JOgj4pngSoxKI5oN7diiX4/edit"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="btn btn-primary text-lg px-12 py-4 inline-flex items-center gap-3"
+                            className="btn btn-primary text-base sm:text-lg px-8 sm:px-12 py-3 sm:py-4 inline-flex items-center gap-3 w-full sm:w-auto justify-center"
                             onClick={() => trackCTAClick('Join as Creator Partner')}
                         >
                             Join as a Creator Partner
@@ -97,7 +97,7 @@ export const Hero: React.FC = () => {
                             href="https://docs.google.com/forms/d/e/1FAIpQLSdGuo9L7pk76kpYWZQxzRVHa3fPZtvq231rapR8o2VLKGXIxA/viewform?usp=header"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="btn btn-secondary-yellow text-lg px-12 py-4 inline-flex items-center gap-3"
+                            className="btn btn-secondary-yellow text-base sm:text-lg px-8 sm:px-12 py-3 sm:py-4 inline-flex items-center gap-3 w-full sm:w-auto justify-center"
                             onClick={() => trackCTAClick('Join as Institute Partner')}
                         >
                             Join as Institute Partner
@@ -112,17 +112,26 @@ export const Hero: React.FC = () => {
                     initial={{ opacity: 0, y: 50 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1, delay: 0.5 }}
-                    className="w-full max-w-4xl aspect-video bg-white border-4 border-primary/20 rounded-3xl relative overflow-hidden shadow-2xl shadow-primary/10"
+                    className="w-[calc(100%+4rem)] -mx-8 sm:w-full sm:mx-0 max-w-4xl aspect-video bg-white border-y-4 sm:border-4 border-primary/20 rounded-xl sm:rounded-3xl relative overflow-hidden shadow-2xl shadow-primary/10 group"
                 >
                     <video
                         ref={videoRef}
                         className="w-full h-full object-cover rounded-2xl"
-                        controls
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
                         preload="metadata"
                     >
                         <source src="/youtube_solution_Nishant_jindal.mp4#t=12" type="video/mp4" />
                         Your browser does not support the video tag.
                     </video>
+                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10 transition-opacity duration-300 group-hover:opacity-0">
+                        <div className="w-16 md:w-24 h-16 md:h-24 rounded-full bg-white/30 backdrop-blur-md flex items-center justify-center text-white shadow-xl">
+                            <Play fill="currentColor" className="w-8 md:w-12 h-8 md:h-12 ml-1 md:ml-2" />
+                        </div>
+                    </div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none"></div>
                 </motion.div>
             </div>
         </section>

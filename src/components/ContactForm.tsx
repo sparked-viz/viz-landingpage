@@ -5,16 +5,16 @@ import { trackCTAClick } from '../analytics';
 
 export const ContactForm: React.FC = () => {
     return (
-        <section id="contact" className="section relative overflow-hidden py-32 bg-gradient-to-br from-purple-100 via-purple-50 to-pink-50">
+        <section id="contact" className="section relative flex flex-col items-center justify-center overflow-hidden pt-20 pb-32 bg-gradient-to-br from-purple-100 via-purple-50 to-pink-50">
             {/* Decorative Blobs */}
             <div className="absolute top-10 right-10 w-64 h-64 bg-yellow-400 rounded-full opacity-20 blur-3xl"></div>
             <div className="absolute bottom-10 left-10 w-80 h-80 bg-purple-400 rounded-full opacity-15 blur-3xl"></div>
 
-            <div className="container relative z-10 max-w-4xl text-center px-4">
+            <div className="container relative z-10 max-w-4xl text-center px-4 sm:px-4">
                 <motion.div
                     initial={{ opacity: 0, scale: 0.95 }}
                     whileInView={{ opacity: 1, scale: 1 }}
-                    className="bg-white rounded-2xl sm:rounded-3xl p-8 sm:p-12 md:p-20 relative overflow-hidden border-3 sm:border-4 border-primary/20 shadow-2xl shadow-primary/10"
+                    className="bg-white rounded-2xl sm:rounded-3xl py-8 px-4 sm:p-12 md:p-20 relative overflow-hidden border-3 sm:border-4 border-primary/20 shadow-2xl shadow-primary/10 w-[calc(100%+4rem)] -mx-8 sm:w-full sm:mx-0"
                 >
                     <motion.div
                         initial={{ y: 20, opacity: 0 }}
@@ -25,12 +25,13 @@ export const ContactForm: React.FC = () => {
                         <Sparkles className="w-8 sm:w-10 h-8 sm:h-10 text-primary" />
                     </motion.div>
 
-                    <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-4 sm:mb-6" style={{ color: 'var(--color-text)' }}>
+                    <h2 className="text-2xl sm:text-5xl md:text-7xl font-bold leading-tight mb-6 px-4" style={{ color: 'var(--color-text)' }}>
                         Transform How You{' '}
-                        <span className="font-handwritten text-primary italic">Teach</span>{' '}
+                        <br className="sm:hidden" />
+                        <span className="font-handwritten text-primary italic text-3xl sm:text-6xl md:text-8xl">Teach</span>{' '}
                         Physics
                     </h2>
-                    <p className="text-base sm:text-lg md:text-xl mb-8 sm:mb-10 max-w-2xl mx-auto leading-relaxed" style={{ color: 'var(--color-text-dim)' }}>
+                    <p className="text-sm sm:text-lg md:text-xl text-dim max-w-2xl leading-relaxed mx-auto mb-8 px-4" style={{ color: 'var(--color-text-dim)' }}>
                         Join the early cohort shaping the future of visual problem solving.
                     </p>
 
@@ -39,13 +40,11 @@ export const ContactForm: React.FC = () => {
                             href="https://docs.google.com/forms/d/e/1FAIpQLScnN4HCgpU_5dBix_IIC689a3y0PmYVR-H3FkKQy9Snt2Ds9w/viewform?usp=publish-editor"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="group"
+                            className="btn btn-primary text-base sm:text-lg px-8 sm:px-12 py-3 sm:py-4 inline-flex items-center gap-3 w-full sm:w-auto justify-center group"
                             onClick={() => trackCTAClick('Get Beta Access')}
                         >
-                            <button className="btn btn-primary text-base sm:text-lg md:text-xl px-8 sm:px-10 md:px-12 py-4 sm:py-5 rounded-full flex items-center gap-3 sm:gap-4 group-hover:shadow-2xl transition-shadow duration-300">
-                                Get Beta Access
-                                <ArrowRight className="w-5 sm:w-6 h-5 sm:h-6 group-hover:translate-x-1 transition-transform" />
-                            </button>
+                            Get Beta Access
+                            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </a>
                     </div>
 

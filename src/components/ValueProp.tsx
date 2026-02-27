@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Zap, Brain, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Zap, Brain, ChevronLeft, ChevronRight, Play } from 'lucide-react';
 
 interface Benefit {
     text: string;
@@ -25,8 +25,8 @@ const features: Feature[] = [
         benefits: [
             {
                 text: "Clarity in problem visualization",
-                media: "/resources/clarity-in-problem-visualization.gif",
-                mediaType: "gif"
+                media: "/resources/clarity-in-problem-visualization.mp4",
+                mediaType: "mp4"
             }
         ],
         bgColor: "bg-purple-100",
@@ -38,8 +38,8 @@ const features: Feature[] = [
         benefits: [
             {
                 text: "Strong mental model formation",
-                media: "/resources/mental-model-1.gif",
-                mediaType: "gif"
+                media: "/resources/constraints_mental_model.mp4",
+                mediaType: "mp4"
             },
             {
                 text: "Concept transfer across problems",
@@ -78,9 +78,9 @@ const MediaCarousel: React.FC<{ media: Array<{ src: string; type: 'gif' | 'mp4' 
 
 
     return (
-        <div className="relative w-full max-w-2xl mx-auto rounded-xl overflow-hidden shadow-2xl">
+        <div className="relative w-full max-w-4xl sm:mx-auto rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl border-y-4 sm:border-4 border-white/20 group">
             {/* Fixed aspect ratio container to prevent layout shift */}
-            <div className="relative w-full" style={{ paddingBottom: '56.25%' }}> {/* 16:9 aspect ratio */}
+            <div className="relative w-full group aspect-video bg-gray-900">
                 {currentMedia.type === 'gif' ? (
                     <img
                         src={currentMedia.src}
@@ -94,9 +94,14 @@ const MediaCarousel: React.FC<{ media: Array<{ src: string; type: 'gif' | 'mp4' 
                         loop
                         muted
                         playsInline
-                        className="absolute inset-0 w-full h-full object-contain bg-purple-900/10"
+                        className="absolute inset-0 w-full h-full object-cover"
                     />
                 )}
+                <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10 transition-opacity duration-300 group-hover:opacity-0">
+                    <div className="w-16 sm:w-20 h-16 sm:h-20 rounded-full bg-white/30 backdrop-blur-md flex items-center justify-center text-white shadow-xl">
+                        <Play fill="currentColor" className="w-8 sm:w-10 h-8 sm:h-10 ml-1 sm:ml-2" />
+                    </div>
+                </div>
             </div>
 
             {media.length > 1 && (
@@ -135,28 +140,28 @@ const MediaCarousel: React.FC<{ media: Array<{ src: string; type: 'gif' | 'mp4' 
 
 export const ValueProp: React.FC = () => {
     return (
-        <section className="section relative py-24 bg-gradient-to-b from-purple-50 to-white">
+        <section className="section relative py-12 sm:py-16 bg-gradient-to-b from-purple-50 to-white">
             <div className="container">
-                <div className="text-center mb-16 px-4">
+                <div className="text-center mb-12 sm:mb-16 px-4">
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        className="text-4xl sm:text-5xl md:text-7xl font-bold mb-4 sm:mb-6"
+                        className="text-2xl sm:text-5xl md:text-7xl font-bold mb-4 sm:mb-6"
                         style={{ color: 'var(--color-text)' }}
                     >
-                        WHY <span className="font-handwritten text-primary italic text-5xl sm:text-6xl md:text-8xl">VIZ</span>
+                        WHY <span className="font-handwritten text-primary italic text-3xl sm:text-6xl md:text-8xl">VIZ</span>
                     </motion.h2>
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.1 }}
-                        className="text-dim text-base sm:text-lg md:text-xl font-medium"
+                        className="text-dim text-sm sm:text-lg md:text-xl font-medium"
                     >
                         Designed for clarity. Built for speed.
                     </motion.p>
                 </div>
 
-                <div className="max-w-6xl mx-auto space-y-8 sm:space-y-12 md:space-y-16 px-4">
+                <div className="max-w-6xl mx-auto space-y-8 md:space-y-10">
                     {features.map((feature, index) => (
                         <motion.div
                             key={index}
@@ -164,7 +169,7 @@ export const ValueProp: React.FC = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.15 }}
-                            className={`${feature.bgColor} ${feature.borderColor} border-3 sm:border-4 rounded-2xl sm:rounded-3xl p-6 sm:p-10 md:p-16 relative overflow-hidden`}
+                            className={`w-[100vw] relative left-[calc(-50vw+50%)] sm:w-full sm:static sm:left-auto ${feature.bgColor} ${feature.borderColor} border-y-3 sm:border-4 rounded-none sm:rounded-3xl p-3 sm:p-8 md:p-12 overflow-hidden`}
                         >
                             {/* Background glow effect */}
                             <div className="absolute -inset-8 bg-gradient-to-r from-primary/10 via-transparent to-primary/10 blur-3xl opacity-50 pointer-events-none"></div>
@@ -177,7 +182,7 @@ export const ValueProp: React.FC = () => {
                                             {feature.icon}
                                         </div>
                                     </div>
-                                    <h3 className={`text-2xl sm:text-3xl md:text-5xl font-bold ${feature.textColor || 'text-gray-800'}`}>
+                                    <h3 className={`text-lg sm:text-3xl md:text-5xl font-bold ${feature.textColor || 'text-gray-800'}`}>
                                         {feature.title}
                                     </h3>
                                 </div>
@@ -186,18 +191,18 @@ export const ValueProp: React.FC = () => {
                                 <ul className="space-y-6 sm:space-y-8 max-w-4xl mx-auto">
                                     {feature.benefits.map((benefit, i) => (
                                         <li key={i} className="space-y-4">
-                                            <div className={`text-base sm:text-lg md:text-2xl leading-relaxed flex items-center justify-center gap-2 sm:gap-3 md:gap-4 ${feature.textColor ? 'text-white/90' : 'text-gray-700'}`}>
-                                                <span className={`text-xl sm:text-2xl md:text-3xl ${feature.textColor ? 'text-white' : 'text-primary'}`}>•</span>
+                                            <div className={`text-sm sm:text-lg md:text-2xl leading-relaxed flex items-center justify-center gap-2 sm:gap-3 md:gap-4 ${feature.textColor ? 'text-white/90' : 'text-gray-700'}`}>
+                                                <span className={`text-lg sm:text-2xl md:text-3xl ${feature.textColor ? 'text-white' : 'text-primary'}`}>•</span>
                                                 <span>{benefit.text}</span>
                                             </div>
                                             {benefit.media && (
-                                                <div className="flex justify-center mt-4">
-                                                    <div className="w-full max-w-2xl rounded-xl overflow-hidden shadow-2xl">
+                                                <div className="flex justify-center mt-6 sm:mt-8">
+                                                    <div className="relative w-full max-w-4xl rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl border-y-4 sm:border-4 border-white/20 aspect-video bg-gray-900 group">
                                                         {benefit.mediaType === 'gif' ? (
                                                             <img
                                                                 src={benefit.media}
                                                                 alt={benefit.text}
-                                                                className="w-full h-auto"
+                                                                className="w-full h-full object-cover"
                                                             />
                                                         ) : (
                                                             <video
@@ -206,9 +211,14 @@ export const ValueProp: React.FC = () => {
                                                                 loop
                                                                 muted
                                                                 playsInline
-                                                                className="w-full h-auto"
+                                                                className="w-full h-full object-cover"
                                                             />
                                                         )}
+                                                        <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10 transition-opacity duration-300 group-hover:opacity-0">
+                                                            <div className="w-16 sm:w-20 h-16 sm:h-20 rounded-full bg-white/30 backdrop-blur-md flex items-center justify-center text-white shadow-xl">
+                                                                <Play fill="currentColor" className="w-8 sm:w-10 h-8 sm:h-10 ml-1 sm:ml-2" />
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             )}

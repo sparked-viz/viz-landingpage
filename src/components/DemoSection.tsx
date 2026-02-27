@@ -59,13 +59,13 @@ export const DemoSection: React.FC = () => {
                 </div>
 
                 <div className="max-w-6xl mx-auto">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-8 mb-0 md:mb-8 space-y-4 md:space-y-0">
                         {/* Image 1 - NLM Example */}
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            className="aspect-video bg-purple-100 border-4 border-purple-300 rounded-3xl overflow-hidden group hover:shadow-2xl hover:shadow-purple-200 transition-all duration-300 hover:-translate-y-2"
+                            className="w-[100vw] relative left-[calc(-50vw+50%)] md:w-full md:static md:left-auto aspect-video bg-purple-100 border-y-4 md:border-4 border-purple-300 rounded-none md:rounded-3xl overflow-hidden group hover:shadow-2xl hover:shadow-purple-200 transition-all duration-300 hover:-translate-y-2"
                         >
                             <img
                                 src="/nlm example image.png"
@@ -80,7 +80,7 @@ export const DemoSection: React.FC = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: 0.1 }}
-                            className="aspect-video bg-yellow-100 border-4 border-yellow-400 rounded-3xl overflow-hidden group hover:shadow-2xl hover:shadow-yellow-200 transition-all duration-300 hover:-translate-y-2"
+                            className="w-[100vw] relative left-[calc(-50vw+50%)] md:w-full md:static md:left-auto aspect-video bg-yellow-100 border-y-4 md:border-4 border-yellow-400 rounded-none md:rounded-3xl overflow-hidden group hover:shadow-2xl hover:shadow-yellow-200 transition-all duration-300 hover:-translate-y-2"
                         >
                             <img
                                 src="/waves example image.png"
@@ -96,7 +96,7 @@ export const DemoSection: React.FC = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.2 }}
-                        className="w-full aspect-video bg-white border-4 border-accent rounded-3xl overflow-hidden hover:shadow-2xl hover:shadow-accent/20 transition-all duration-300"
+                        className="w-[100vw] relative mt-4 md:mt-0 left-[calc(-50vw+50%)] md:w-full md:static md:left-auto aspect-video bg-white border-y-4 md:border-4 border-accent rounded-none md:rounded-3xl overflow-hidden hover:shadow-2xl hover:shadow-accent/20 transition-all duration-300"
                     >
                         <video
                             ref={videoRef}
