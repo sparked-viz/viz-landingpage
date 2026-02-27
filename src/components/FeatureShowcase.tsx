@@ -82,7 +82,7 @@ export const FeatureShowcase: React.FC = () => {
                                 Explainor tool
                             </h3>
                             <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
-                                Break down complex physics into logical, visual steps that build lasting mental models.
+                                Write, Zoom, Laser Point and Explain. Break down complex physics into logical, visual steps that build lasting mental models.
                             </p>
                         </div>
 
