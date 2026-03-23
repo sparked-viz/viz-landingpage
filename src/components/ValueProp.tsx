@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Zap, Brain, ChevronLeft, ChevronRight, Play } from 'lucide-react';
+import { Zap, Brain, ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface Benefit {
     text: string;
@@ -11,85 +11,75 @@ interface Benefit {
 interface Feature {
     icon: React.ReactNode;
     title: string;
+    subtitle: string;
     benefits: Benefit[];
     sharedMedia?: Array<{ src: string; type: 'gif' | 'mp4' }>;
-    bgColor: string;
-    borderColor: string;
-    textColor?: string;
+    dark?: boolean;
 }
 
 const features: Feature[] = [
     {
-        icon: <Zap className="w-12 h-12 text-purple-600" />,
-        title: "Short-Term Value",
+        icon: <Zap className="w-6 h-6" />,
+        title: 'Short-Term Value',
+        subtitle: 'Immediate clarity in every session.',
         benefits: [
             {
-                text: "Clarity in problem visualization",
-                media: "/resources/clarity-in-problem-visualization.mp4",
-                mediaType: "mp4"
-            }
+                text: 'Clarity in problem visualization',
+                media: '/resources/clarity-in-problem-visualization.mp4',
+                mediaType: 'mp4',
+            },
         ],
-        bgColor: "bg-purple-100",
-        borderColor: "border-purple-300",
+        dark: false,
     },
     {
-        icon: <Brain className="w-12 h-12 text-white" />,
-        title: "Long-Term Value",
+        icon: <Brain className="w-6 h-6" />,
+        title: 'Long-Term Value',
+        subtitle: 'Mental models that last a lifetime.',
         benefits: [
             {
-                text: "Strong mental model formation",
-                media: "/resources/constraints_mental_model.mp4",
-                mediaType: "mp4"
+                text: 'Strong mental model formation',
+                media: '/resources/constraints_mental_model.mp4',
+                mediaType: 'mp4',
             },
             {
-                text: "Concept transfer across problems",
-                media: "/resources/projectile-mental-model.mp4",
-                mediaType: "mp4"
-            }
+                text: 'Concept transfer across problems',
+                media: '/resources/projectile-mental-model.mp4',
+                mediaType: 'mp4',
+            },
         ],
-        bgColor: "bg-purple-600",
-        borderColor: "border-purple-700",
-        textColor: "text-white",
-    }
+        dark: true,
+    },
 ];
 
 
-const MediaCarousel: React.FC<{ media: Array<{ src: string; type: 'gif' | 'mp4' }> }> = ({ media }) => {
+const MediaCarousel: React.FC<{
+    media: Array<{ src: string; type: 'gif' | 'mp4' }>;
+    dark?: boolean;
+}> = ({ media, dark }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
 
-    const nextSlide = () => {
-        setCurrentIndex((prev) => (prev + 1) % media.length);
-    };
+    const nextSlide = () => setCurrentIndex(prev => (prev + 1) % media.length);
+    const prevSlide = () => setCurrentIndex(prev => (prev - 1 + media.length) % media.length);
 
-    const prevSlide = () => {
-        setCurrentIndex((prev) => (prev - 1 + media.length) % media.length);
-    };
-
-    // Auto-scroll every 5 seconds
     React.useEffect(() => {
-        const interval = setInterval(() => {
-            nextSlide();
-        }, 5000);
-
+        const interval = setInterval(nextSlide, 5000);
         return () => clearInterval(interval);
     }, [media.length]);
 
-    const currentMedia = media[currentIndex];
-
+    const current = media[currentIndex];
 
     return (
-        <div className="relative w-full max-w-4xl sm:mx-auto rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl border-y-4 sm:border-4 border-white/20 group">
-            {/* Fixed aspect ratio container to prevent layout shift */}
-            <div className="relative w-full group aspect-video bg-gray-900">
-                {currentMedia.type === 'gif' ? (
+        <div className={`relative w-full rounded-xl overflow-hidden ${dark ? 'media-frame-dark' : 'media-frame'}`}>
+            <div className="relative w-full aspect-video bg-bg-dark">
+                {current.type === 'gif' ? (
                     <img
-                        src={currentMedia.src}
+                        src={current.src}
                         alt="Mental model visualization"
-                        className="absolute inset-0 w-full h-full object-contain bg-purple-900/10"
+                        className="absolute inset-0 w-full h-full object-contain"
                     />
                 ) : (
                     <video
-                        src={currentMedia.src}
+                        src={current.src}
                         autoPlay
                         loop
                         muted
@@ -97,37 +87,30 @@ const MediaCarousel: React.FC<{ media: Array<{ src: string; type: 'gif' | 'mp4' 
                         className="absolute inset-0 w-full h-full object-cover"
                     />
                 )}
-                <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10 transition-opacity duration-300 group-hover:opacity-0">
-                    <div className="w-16 sm:w-20 h-16 sm:h-20 rounded-full bg-white/30 backdrop-blur-md flex items-center justify-center text-white shadow-xl">
-                        <Play fill="currentColor" className="w-8 sm:w-10 h-8 sm:h-10 ml-1 sm:ml-2" />
-                    </div>
-                </div>
             </div>
 
             {media.length > 1 && (
                 <>
                     <button
                         onClick={prevSlide}
-                        className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-purple-600 rounded-full p-2 transition-all shadow-lg z-10"
+                        className="absolute left-3 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 text-white rounded-full p-2 transition-all backdrop-blur-sm z-10"
                         aria-label="Previous"
                     >
-                        <ChevronLeft className="w-6 h-6" />
+                        <ChevronLeft className="w-5 h-5" />
                     </button>
                     <button
                         onClick={nextSlide}
-                        className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-purple-600 rounded-full p-2 transition-all shadow-lg z-10"
+                        className="absolute right-3 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 text-white rounded-full p-2 transition-all backdrop-blur-sm z-10"
                         aria-label="Next"
                     >
-                        <ChevronRight className="w-6 h-6" />
+                        <ChevronRight className="w-5 h-5" />
                     </button>
-
                     <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
                         {media.map((_, idx) => (
                             <button
                                 key={idx}
                                 onClick={() => setCurrentIndex(idx)}
-                                className={`w-2 h-2 rounded-full transition-all ${idx === currentIndex ? 'bg-white w-8' : 'bg-white/50'
-                                    }`}
+                                className={`h-1.5 rounded-full transition-all ${idx === currentIndex ? 'w-6 bg-white' : 'w-1.5 bg-white/40'}`}
                                 aria-label={`Go to slide ${idx + 1}`}
                             />
                         ))}
@@ -138,106 +121,84 @@ const MediaCarousel: React.FC<{ media: Array<{ src: string; type: 'gif' | 'mp4' 
     );
 };
 
+
 export const ValueProp: React.FC = () => {
     return (
-        <section className="section relative py-12 sm:py-16 bg-gradient-to-b from-purple-50 to-white">
+        <section className="section bg-bg-secondary">
             <div className="container">
-                <div className="text-center mb-12 sm:mb-16 px-4">
+                {/* Header */}
+                <div className="text-center mb-16 px-4">
+                    <motion.p
+                        initial={{ opacity: 0, y: 16 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="overline mb-4"
+                    >
+                        Why VIZ
+                    </motion.p>
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        className="text-2xl sm:text-5xl md:text-7xl font-bold mb-4 sm:mb-6"
-                        style={{ color: 'var(--color-text)' }}
-                    >
-                        WHY <span className="font-handwritten text-primary italic text-3xl sm:text-6xl md:text-8xl">VIZ</span>
-                    </motion.h2>
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.1 }}
-                        className="text-dim text-sm sm:text-lg md:text-xl font-medium"
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.08 }}
+                        className="text-display-xl font-bold text-ink max-w-2xl mx-auto mb-4"
                     >
                         Designed for clarity. Built for speed.
-                    </motion.p>
+                    </motion.h2>
                 </div>
 
-                <div className="max-w-6xl mx-auto space-y-8 md:space-y-10">
+                <div className="max-w-4xl mx-auto space-y-6">
                     {features.map((feature, index) => (
                         <motion.div
                             key={index}
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ delay: index * 0.15 }}
-                            className={`w-[100vw] relative left-[calc(-50vw+50%)] sm:w-full sm:static sm:left-auto ${feature.bgColor} ${feature.borderColor} border-y-3 sm:border-4 rounded-none sm:rounded-3xl p-3 sm:p-8 md:p-12 overflow-hidden`}
+                            transition={{ delay: index * 0.1, duration: 0.5 }}
+                            className={feature.dark ? 'card-dark p-8 md:p-12' : 'card-raised p-8 md:p-12'}
                         >
-                            {/* Background glow effect */}
-                            <div className="absolute -inset-8 bg-gradient-to-r from-primary/10 via-transparent to-primary/10 blur-3xl opacity-50 pointer-events-none"></div>
-
-                            <div className="relative space-y-6 sm:space-y-8 md:space-y-10">
-                                {/* Icon and Title */}
-                                <div className="text-center space-y-4 sm:space-y-6">
-                                    <div className="flex justify-center">
-                                        <div className={`w-16 sm:w-20 h-16 sm:h-20 rounded-2xl ${index === 1 ? 'bg-white/20' : 'bg-white'} flex items-center justify-center shadow-lg`}>
-                                            {feature.icon}
-                                        </div>
+                            <div className="space-y-8">
+                                {/* Title block */}
+                                <div className="flex items-start gap-4">
+                                    <div className={`w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 ${feature.dark ? 'bg-white/10 text-white' : 'bg-bg-secondary text-ink'}`}>
+                                        {feature.icon}
                                     </div>
-                                    <h3 className={`text-lg sm:text-3xl md:text-5xl font-bold ${feature.textColor || 'text-gray-800'}`}>
-                                        {feature.title}
-                                    </h3>
+                                    <div>
+                                        <h3 className={`text-display-lg font-bold mb-1 ${feature.dark ? 'text-white' : 'text-ink'}`}>
+                                            {feature.title}
+                                        </h3>
+                                        <p className={`text-body-md ${feature.dark ? 'text-white-dim' : 'text-ink-secondary'}`}>
+                                            {feature.subtitle}
+                                        </p>
+                                    </div>
                                 </div>
 
                                 {/* Benefits */}
-                                <ul className="space-y-6 sm:space-y-8 max-w-4xl mx-auto">
+                                <ul className="space-y-8">
                                     {feature.benefits.map((benefit, i) => (
-                                        <li key={i} className="space-y-4">
-                                            <div className={`text-sm sm:text-lg md:text-2xl leading-relaxed flex items-center justify-center gap-2 sm:gap-3 md:gap-4 ${feature.textColor ? 'text-white/90' : 'text-gray-700'}`}>
-                                                <span className={`text-lg sm:text-2xl md:text-3xl ${feature.textColor ? 'text-white' : 'text-primary'}`}>•</span>
-                                                <span>{benefit.text}</span>
-                                            </div>
+                                        <li key={i} className="space-y-5">
+                                            <p className={`text-body-lg font-medium ${feature.dark ? 'text-white/80' : 'text-ink-secondary'}`}>
+                                                — {benefit.text}
+                                            </p>
                                             {benefit.media && (
-                                                <div className="flex justify-center mt-6 sm:mt-8">
-                                                    <div className="relative w-full max-w-4xl rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl border-y-4 sm:border-4 border-white/20 aspect-video bg-gray-900 group">
-                                                        {benefit.mediaType === 'gif' ? (
-                                                            <img
-                                                                src={benefit.media}
-                                                                alt={benefit.text}
-                                                                className="w-full h-full object-cover"
-                                                            />
-                                                        ) : (
-                                                            <video
-                                                                src={benefit.media}
-                                                                autoPlay
-                                                                loop
-                                                                muted
-                                                                playsInline
-                                                                className="w-full h-full object-cover"
-                                                            />
-                                                        )}
-                                                        <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10 transition-opacity duration-300 group-hover:opacity-0">
-                                                            <div className="w-16 sm:w-20 h-16 sm:h-20 rounded-full bg-white/30 backdrop-blur-md flex items-center justify-center text-white shadow-xl">
-                                                                <Play fill="currentColor" className="w-8 sm:w-10 h-8 sm:h-10 ml-1 sm:ml-2" />
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                <div className="w-[calc(100%+4rem)] -mx-8 sm:w-full sm:mx-0">
+                                                    <MediaCarousel
+                                                        media={[{ src: benefit.media, type: benefit.mediaType || 'mp4' }]}
+                                                        dark={feature.dark}
+                                                    />
                                                 </div>
                                             )}
                                         </li>
                                     ))}
                                 </ul>
 
-                                {/* Shared Media Carousel */}
+                                {/* Shared media carousel */}
                                 {feature.sharedMedia && feature.sharedMedia.length > 0 && (
-                                    <div className="mt-8">
-                                        <MediaCarousel media={feature.sharedMedia} />
+                                    <div className="w-[calc(100%+4rem)] -mx-8 sm:w-full sm:mx-0">
+                                        <MediaCarousel media={feature.sharedMedia} dark={feature.dark} />
                                     </div>
                                 )}
                             </div>
-
-                            {/* Separator line (only for first item) */}
-                            {index === 0 && (
-                                <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-transparent via-purple-300 to-transparent rounded-full"></div>
-                            )}
                         </motion.div>
                     ))}
                 </div>
@@ -245,4 +206,3 @@ export const ValueProp: React.FC = () => {
         </section>
     );
 };
-

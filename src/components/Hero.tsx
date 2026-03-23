@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Play } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { trackCTAClick, trackVideoPlay, trackVideoWatchTime } from '../analytics';
 
 export const Hero: React.FC = () => {
@@ -13,13 +13,10 @@ export const Hero: React.FC = () => {
 
         const videoName = 'Hero Demo Video';
 
-        const handlePlay = () => {
-            trackVideoPlay(videoName);
-        };
+        const handlePlay = () => { trackVideoPlay(videoName); };
 
         const handleTimeUpdate = () => {
             const currentSecond = Math.floor(video.currentTime);
-            // Report every 10 seconds of watched time
             if (currentSecond > 0 && currentSecond % 10 === 0 && currentSecond !== lastReportedSecond.current) {
                 lastReportedSecond.current = currentSecond;
                 trackVideoWatchTime(videoName, 10);
@@ -28,9 +25,7 @@ export const Hero: React.FC = () => {
 
         const handlePauseOrEnd = () => {
             const remainder = Math.floor(video.currentTime) % 10;
-            if (remainder > 0) {
-                trackVideoWatchTime(videoName, remainder);
-            }
+            if (remainder > 0) trackVideoWatchTime(videoName, remainder);
         };
 
         video.addEventListener('play', handlePlay);
@@ -47,82 +42,84 @@ export const Hero: React.FC = () => {
     }, []);
 
     return (
-        <section className="relative flex flex-col items-center justify-center overflow-hidden pt-20 pb-32 bg-gradient-to-br from-purple-100 via-purple-50 to-yellow-50">
-            {/* Decorative Blobs */}
-            <div className="absolute top-10 left-10 w-64 h-64 bg-yellow-400 rounded-full opacity-20 blur-3xl"></div>
-            <div className="absolute bottom-20 right-10 w-80 h-80 bg-purple-400 rounded-full opacity-15 blur-3xl"></div>
-            <div className="absolute top-1/2 left-1/4 w-40 h-40 bg-accent rounded-full opacity-10 blur-2xl"></div>
+        <section id="home" className="bg-white pt-36 pb-24 overflow-hidden">
+            <div className="container flex flex-col items-center text-center">
 
-            <div className="container relative z-10 flex flex-col items-center text-center max-w-6xl">
+                <motion.p
+                    initial={{ opacity: 0, y: 16 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                    className="overline-brand mb-6"
+                >
+                    SparkEdu · Where Education Meets Innovation
+                </motion.p>
 
                 <motion.h1
-                    initial={{ opacity: 0, y: 30 }}
+                    initial={{ opacity: 0, y: 24 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.1 }}
-                    className="text-2xl sm:text-5xl md:text-7xl font-bold leading-tight mb-6 px-4"
-                    style={{ color: 'var(--color-text)' }}
+                    transition={{ duration: 0.6, delay: 0.08 }}
+                    className="text-display-2xl font-bold text-ink max-w-4xl mb-6 px-4"
                 >
-                    Help students understand problems{' '}
-                    <br />
-                    more clearly in your <span className="font-handwritten text-primary italic text-3xl sm:text-6xl md:text-8xl">teaching sessions</span>
+                    Help students understand problems more clearly.
                 </motion.h1>
 
                 <motion.p
-                    initial={{ opacity: 0, y: 30 }}
+                    initial={{ opacity: 0, y: 24 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
-                    className="text-sm sm:text-lg md:text-xl text-dim max-w-2xl leading-relaxed mb-8 px-4"
+                    transition={{ duration: 0.6, delay: 0.16 }}
+                    className="text-body-lg text-ink-secondary max-w-xl mb-10 px-4"
                 >
                     Build mental models, not just solutions.
                 </motion.p>
 
                 <motion.div
-                    initial={{ opacity: 0, y: 30 }}
+                    initial={{ opacity: 0, y: 24 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.3 }}
-                    className="flex flex-col items-center gap-4 mb-16"
+                    transition={{ duration: 0.6, delay: 0.24 }}
+                    className="flex flex-col sm:flex-row items-center gap-3 mb-4"
                 >
-                    <div className="flex flex-col sm:flex-row items-center gap-4">
-                        <a
-                            href="https://docs.google.com/forms/d/e/1FAIpQLSdGuo9L7pk76kpYWZQxzRVHa3fPZtvq231rapR8o2VLKGXIxA/viewform"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="btn btn-primary text-base sm:text-lg px-8 sm:px-12 py-3 sm:py-4 inline-flex items-center gap-3 w-full sm:w-auto justify-center"
-                            onClick={() => trackCTAClick('Enroll now')}
-                        >
-                            Enroll now
-                            <ArrowRight className="w-5 h-5" />
-                        </a>
-                    </div>
-                    <p className="text-sm text-dim/60 font-medium">Limited early access spots available</p>
+                    <a
+                        href="https://docs.google.com/forms/d/e/1FAIpQLSdGuo9L7pk76kpYWZQxzRVHa3fPZtvq231rapR8o2VLKGXIxA/viewform"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn btn-brand text-base px-8 py-3 inline-flex items-center gap-2 w-full sm:w-auto justify-center"
+                        onClick={() => trackCTAClick('Enroll now')}
+                    >
+                        Enroll now
+                        <ArrowRight className="w-4 h-4" />
+                    </a>
+                    <a href="#viz" className="btn btn-outline text-base px-8 py-3 w-full sm:w-auto justify-center">
+                        See how it works
+                    </a>
                 </motion.div>
+
+                <motion.p
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.5, delay: 0.32 }}
+                    className="text-label-sm text-ink-tertiary mb-20"
+                >
+                    Limited early access spots available
+                </motion.p>
 
                 {/* Video */}
                 <motion.div
-                    initial={{ opacity: 0, y: 50 }}
+                    initial={{ opacity: 0, y: 48 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1, delay: 0.5 }}
-                    className="w-[calc(100%+4rem)] -mx-8 sm:w-full sm:mx-0 max-w-4xl aspect-video bg-white border-y-4 sm:border-4 border-primary/20 rounded-xl sm:rounded-3xl relative overflow-hidden shadow-2xl shadow-primary/10 group"
+                    transition={{ duration: 0.9, delay: 0.4 }}
+                    className="w-[calc(100%+3rem)] -mx-6 sm:w-full sm:mx-0 media-frame"
                 >
                     <video
                         ref={videoRef}
-                        className="w-full h-full object-cover rounded-2xl"
+                        className="w-full aspect-video object-cover"
                         autoPlay
                         loop
                         muted
                         playsInline
                         preload="metadata"
                     >
-
                         <source src="/resources/nishant-jindal-reduced-size.mp4#t=12" type="video/mp4" />
-                        Your browser does not support the video tag.
                     </video>
-                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10 transition-opacity duration-300 group-hover:opacity-0">
-                        <div className="w-16 md:w-24 h-16 md:h-24 rounded-full bg-white/30 backdrop-blur-md flex items-center justify-center text-white shadow-xl">
-                            <Play fill="currentColor" className="w-8 md:w-12 h-8 md:h-12 ml-1 md:ml-2" />
-                        </div>
-                    </div>
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none"></div>
                 </motion.div>
             </div>
         </section>
