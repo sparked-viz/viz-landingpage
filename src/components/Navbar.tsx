@@ -24,7 +24,7 @@ export const Navbar: React.FC = () => {
                 <div className="container-wide flex items-center justify-between h-16">
                     {/* Logo */}
                     <a href="#home" className="flex items-center">
-                        <img src="/logo.jpeg" alt="SparkEdu" className="h-16 w-16 object-cover rounded-lg" />
+                        <img src="/sparkEd_logo.png" alt="SparkEdu" className="h-16 w-16 object-cover rounded-lg" />
                     </a>
 
                     {/* Desktop nav */}
