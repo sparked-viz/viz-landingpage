@@ -16,7 +16,7 @@ const values = [
     {
         icon: <Heart className="w-6 h-6 text-ink-secondary" />,
         title: 'Our Values',
-        desc: 'Clarity over complexity. Tools built by educators, for educators.',
+        desc: 'Every educator deserves the power to create, not just consume.',
     },
 ];
 
