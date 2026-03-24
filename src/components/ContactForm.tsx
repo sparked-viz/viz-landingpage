@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Mail, Phone } from 'lucide-react';
 import { trackCTAClick } from '../analytics';
 
 export const ContactForm: React.FC = () => {
@@ -24,7 +24,7 @@ export const ContactForm: React.FC = () => {
                         transition={{ delay: 0.08 }}
                         className="text-display-xl font-bold text-ink mb-6"
                     >
-                        Transform how you teach physics.
+                        Transform how you Teach.
                     </motion.h2>
 
                     <motion.p
@@ -48,9 +48,9 @@ export const ContactForm: React.FC = () => {
                             target="_blank"
                             rel="noopener noreferrer"
                             className="btn btn-brand text-base px-10 py-3 inline-flex items-center gap-2 group"
-                            onClick={() => trackCTAClick('Enroll now')}
+                            onClick={() => trackCTAClick('Apply to Access')}
                         >
-                            Enroll now
+                            Apply to Access
                             <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
                         </a>
                     </motion.div>
@@ -64,6 +64,24 @@ export const ContactForm: React.FC = () => {
                     >
                         We'll reach out personally after you apply.
                     </motion.p>
+
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.4 }}
+                        className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4 text-sm text-ink-secondary"
+                    >
+                        <a href="mailto:koustubkulkarni9@gmail.com" className="flex items-center gap-2 hover:text-brand transition-colors">
+                            <Mail className="w-4 h-4" />
+                            koustubkulkarni9@gmail.com
+                        </a>
+                        <span className="hidden sm:block text-ink-tertiary">·</span>
+                        <a href="tel:+919380668711" className="flex items-center gap-2 hover:text-brand transition-colors">
+                            <Phone className="w-4 h-4" />
+                            +91 93806 68711
+                        </a>
+                    </motion.div>
                 </div>
             </div>
         </section>

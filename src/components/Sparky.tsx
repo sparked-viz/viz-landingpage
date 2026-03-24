@@ -45,7 +45,7 @@ export const Sparky: React.FC = () => {
                         initial={{ opacity: 0, y: 16 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="overline mb-6"
+                        className="text-xs font-semibold tracking-widest uppercase text-ink-secondary mb-6"
                     >
                         ERP for Schools
                     </motion.p>

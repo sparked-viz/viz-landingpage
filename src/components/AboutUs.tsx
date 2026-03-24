@@ -16,7 +16,7 @@ const values = [
     {
         icon: <Heart className="w-6 h-6 text-ink-secondary" />,
         title: 'Our Values',
-        desc: 'Clarity over complexity. Tools built by educators, for educators.',
+        desc: 'Every educator deserves the power to create, not just consume.',
     },
 ];
 
@@ -30,7 +30,7 @@ export const AboutUs: React.FC = () => {
                         initial={{ opacity: 0, y: 16 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="overline mb-4"
+                        className="text-xs font-semibold tracking-widest uppercase text-ink-secondary mb-4"
                     >
                         About SparkEdu
                     </motion.p>

@@ -23,8 +23,9 @@ export const Navbar: React.FC = () => {
             >
                 <div className="container-wide flex items-center justify-between h-16">
                     {/* Logo */}
-                    <a href="#home" className="font-bold text-base tracking-wide text-ink">
-                        SparkEdu
+                    <a href="#home" className="flex items-center gap-2">
+                        <img src="/sparkEd_logo.png" alt="SparkEdu" className="h-16 w-16 object-cover rounded-lg" />
+                        <span className="font-bold text-base tracking-wide text-ink">SparkEdu</span>
                     </a>
 
                     {/* Desktop nav */}
@@ -48,7 +49,7 @@ export const Navbar: React.FC = () => {
                             rel="noopener noreferrer"
                         >
                             <button className="btn btn-brand text-sm px-5 py-2">
-                                Enroll now
+                                Apply to Access
                             </button>
                         </a>
                         <button
