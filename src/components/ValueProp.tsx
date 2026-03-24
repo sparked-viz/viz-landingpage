@@ -47,7 +47,7 @@ const features: Feature[] = [
                 mediaType: 'mp4',
             },
         ],
-        dark: true,
+        dark: false,
     },
 ];
 
@@ -132,9 +132,9 @@ export const ValueProp: React.FC = () => {
                         initial={{ opacity: 0, y: 16 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="overline mb-4"
+                        className="text-xs font-semibold tracking-widest uppercase text-ink-secondary mb-4"
                     >
-                        Why VIZ
+                        Why VIZ?
                     </motion.p>
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}

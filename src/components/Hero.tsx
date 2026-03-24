@@ -83,9 +83,9 @@ export const Hero: React.FC = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="btn btn-brand text-base px-8 py-3 inline-flex items-center gap-2 w-full sm:w-auto justify-center"
-                        onClick={() => trackCTAClick('Enroll now')}
+                        onClick={() => trackCTAClick('Apply to Access')}
                     >
-                        Enroll now
+                        Apply to Access
                         <ArrowRight className="w-4 h-4" />
                     </a>
                     <a href="#viz" className="btn btn-outline text-base px-8 py-3 w-full sm:w-auto justify-center">

@@ -30,7 +30,7 @@ export const AboutUs: React.FC = () => {
                         initial={{ opacity: 0, y: 16 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="overline mb-4"
+                        className="text-xs font-semibold tracking-widest uppercase text-ink-secondary mb-4"
                     >
                         About SparkEdu
                     </motion.p>
