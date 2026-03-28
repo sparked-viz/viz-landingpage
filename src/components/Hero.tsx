@@ -83,9 +83,9 @@ export const Hero: React.FC = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="btn btn-brand text-base px-8 py-3 inline-flex items-center gap-2 w-full sm:w-auto justify-center"
-                        onClick={() => trackCTAClick('See how it works')}
+                        onClick={() => trackCTAClick('Show me how it works')}
                     >
-                        See how it works
+                        Show me how it works
                         <ArrowRight className="w-4 h-4" />
                     </a>
                 </motion.div>

@@ -48,9 +48,9 @@ export const ContactForm: React.FC = () => {
                             target="_blank"
                             rel="noopener noreferrer"
                             className="btn btn-brand text-base px-10 py-3 inline-flex items-center gap-2 group"
-                            onClick={() => trackCTAClick('Apply to Access')}
+                            onClick={() => trackCTAClick('Show me how it works')}
                         >
-                            Apply to Access
+                            Show me how it works
                             <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
                         </a>
                     </motion.div>

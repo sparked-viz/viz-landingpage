@@ -49,7 +49,7 @@ export const Navbar: React.FC = () => {
                             rel="noopener noreferrer"
                         >
                             <button className="btn btn-brand text-sm px-5 py-2">
-                                Apply to Access
+                                Show me how it works
                             </button>
                         </a>
                         <button
