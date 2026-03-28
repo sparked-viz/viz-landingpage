@@ -60,7 +60,7 @@ export const Hero: React.FC = () => {
                     transition={{ duration: 0.6, delay: 0.08 }}
                     className="text-display-2xl font-bold text-ink max-w-4xl mb-6 px-4"
                 >
-                    Help students understand problems more clearly.
+                    Teach with clarity, not repetition.
                 </motion.h1>
 
                 <motion.p
@@ -69,7 +69,7 @@ export const Hero: React.FC = () => {
                     transition={{ duration: 0.6, delay: 0.16 }}
                     className="text-body-lg text-ink-secondary max-w-xl mb-10 px-4"
                 >
-                    Build mental models, not just solutions.
+                    Students understand faster. Classes move forward.
                 </motion.p>
 
                 <motion.div
@@ -83,13 +83,10 @@ export const Hero: React.FC = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="btn btn-brand text-base px-8 py-3 inline-flex items-center gap-2 w-full sm:w-auto justify-center"
-                        onClick={() => trackCTAClick('Apply to Access')}
+                        onClick={() => trackCTAClick('See how it works')}
                     >
-                        Apply to Access
-                        <ArrowRight className="w-4 h-4" />
-                    </a>
-                    <a href="#viz" className="btn btn-outline text-base px-8 py-3 w-full sm:w-auto justify-center">
                         See how it works
+                        <ArrowRight className="w-4 h-4" />
                     </a>
                 </motion.div>
 
