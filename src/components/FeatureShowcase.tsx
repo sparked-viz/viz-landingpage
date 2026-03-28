@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Sparkles, MessageSquare } from 'lucide-react';
+import { MessageSquare } from 'lucide-react';
 
 export const FeatureShowcase: React.FC = () => {
     return (
@@ -46,11 +46,7 @@ export const FeatureShowcase: React.FC = () => {
                         className="flex flex-col gap-8 w-full max-w-4xl"
                     >
                         <div className="space-y-4 px-4 sm:px-0">
-                            <span className="badge badge-brand">
-                                <Sparkles size={13} />
-                                AI-Powered
-                            </span>
-                            <h3 className="text-display-lg font-bold text-ink">templates + edit</h3>
+                            <h3 className="text-display-lg font-bold text-ink">Templates + Editor</h3>
                             <p className="text-body-lg text-ink-secondary max-w-lg">
                                 Turn problem statements into interactive physical models instantly.
                             </p>
