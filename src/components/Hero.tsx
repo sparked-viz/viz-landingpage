@@ -3,7 +3,11 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { trackCTAClick, trackVideoPlay, trackVideoWatchTime } from '../analytics';
 
-export const Hero: React.FC = () => {
+interface HeroProps {
+    onOpenModal: () => void;
+}
+
+export const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
     const videoRef = useRef<HTMLVideoElement>(null);
     const lastReportedSecond = useRef(0);
 
@@ -42,7 +46,7 @@ export const Hero: React.FC = () => {
     }, []);
 
     return (
-        <section id="home" className="bg-white pt-36 pb-24 overflow-hidden">
+        <section id="home" className="bg-white pt-24 pb-16 md:pt-36 md:pb-24 overflow-hidden">
             <div className="container flex flex-col items-center text-center">
 
                 <motion.p
@@ -78,23 +82,20 @@ export const Hero: React.FC = () => {
                     transition={{ duration: 0.6, delay: 0.24 }}
                     className="flex flex-col sm:flex-row items-center gap-3 mb-4"
                 >
-                    <a
-                        href="https://docs.google.com/forms/d/e/1FAIpQLSdGuo9L7pk76kpYWZQxzRVHa3fPZtvq231rapR8o2VLKGXIxA/viewform"
-                        target="_blank"
-                        rel="noopener noreferrer"
+                    <button
+                        onClick={() => { trackCTAClick('Show me how it works'); onOpenModal(); }}
                         className="btn btn-brand text-base px-8 py-3 inline-flex items-center gap-2 w-full sm:w-auto justify-center"
-                        onClick={() => trackCTAClick('Show me how it works')}
                     >
                         Show me how it works
                         <ArrowRight className="w-4 h-4" />
-                    </a>
+                    </button>
                 </motion.div>
 
                 <motion.p
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.5, delay: 0.32 }}
-                    className="text-label-sm text-ink-tertiary mb-20"
+                    className="text-label-sm text-ink-tertiary mb-10 md:mb-20"
                 >
                     Limited early access spots available
                 </motion.p>
