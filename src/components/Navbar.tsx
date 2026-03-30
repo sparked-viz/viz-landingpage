@@ -10,7 +10,11 @@ const navLinks = [
     { label: 'Contact', href: '#contact' },
 ];
 
-export const Navbar: React.FC = () => {
+interface NavbarProps {
+    onOpenModal: () => void;
+}
+
+export const Navbar: React.FC<NavbarProps> = ({ onOpenModal }) => {
     const [mobileOpen, setMobileOpen] = useState(false);
 
     return (
@@ -43,16 +47,12 @@ export const Navbar: React.FC = () => {
 
                     {/* CTA + mobile toggle */}
                     <div className="flex items-center gap-3">
-                        <a
-                            href="https://docs.google.com/forms/d/e/1FAIpQLSdGuo9L7pk76kpYWZQxzRVHa3fPZtvq231rapR8o2VLKGXIxA/viewform"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="hidden sm:block"
+                        <button
+                            onClick={onOpenModal}
+                            className="btn btn-brand text-sm px-5 py-2 hidden sm:inline-flex"
                         >
-                            <button className="btn btn-brand text-sm px-5 py-2">
-                                Show me how it works
-                            </button>
-                        </a>
+                            Show me how it works
+                        </button>
                         <button
                             className="md:hidden text-ink p-1 transition-colors hover:text-brand"
                             onClick={() => setMobileOpen(!mobileOpen)}

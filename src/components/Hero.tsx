@@ -3,7 +3,11 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { trackCTAClick, trackVideoPlay, trackVideoWatchTime } from '../analytics';
 
-export const Hero: React.FC = () => {
+interface HeroProps {
+    onOpenModal: () => void;
+}
+
+export const Hero: React.FC<HeroProps> = ({ onOpenModal }) => {
     const videoRef = useRef<HTMLVideoElement>(null);
     const lastReportedSecond = useRef(0);
 
@@ -78,16 +82,13 @@ export const Hero: React.FC = () => {
                     transition={{ duration: 0.6, delay: 0.24 }}
                     className="flex flex-col sm:flex-row items-center gap-3 mb-4"
                 >
-                    <a
-                        href="https://docs.google.com/forms/d/e/1FAIpQLSdGuo9L7pk76kpYWZQxzRVHa3fPZtvq231rapR8o2VLKGXIxA/viewform"
-                        target="_blank"
-                        rel="noopener noreferrer"
+                    <button
+                        onClick={() => { trackCTAClick('Show me how it works'); onOpenModal(); }}
                         className="btn btn-brand text-base px-8 py-3 inline-flex items-center gap-2 w-full sm:w-auto justify-center"
-                        onClick={() => trackCTAClick('Show me how it works')}
                     >
                         Show me how it works
                         <ArrowRight className="w-4 h-4" />
-                    </a>
+                    </button>
                 </motion.div>
 
                 <motion.p
