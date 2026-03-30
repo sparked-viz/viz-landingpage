@@ -42,7 +42,7 @@ export const Hero: React.FC = () => {
     }, []);
 
     return (
-        <section id="home" className="bg-white pt-36 pb-24 overflow-hidden">
+        <section id="home" className="bg-white pt-24 pb-16 md:pt-36 md:pb-24 overflow-hidden">
             <div className="container flex flex-col items-center text-center">
 
                 <motion.p
@@ -94,7 +94,7 @@ export const Hero: React.FC = () => {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.5, delay: 0.32 }}
-                    className="text-label-sm text-ink-tertiary mb-20"
+                    className="text-label-sm text-ink-tertiary mb-10 md:mb-20"
                 >
                     Limited early access spots available
                 </motion.p>
