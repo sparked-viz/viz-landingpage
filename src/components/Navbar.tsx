@@ -47,6 +47,7 @@ export const Navbar: React.FC = () => {
                             href="https://docs.google.com/forms/d/e/1FAIpQLSdGuo9L7pk76kpYWZQxzRVHa3fPZtvq231rapR8o2VLKGXIxA/viewform"
                             target="_blank"
                             rel="noopener noreferrer"
+                            className="hidden md:block"
                         >
                             <button className="btn btn-brand text-sm px-5 py-2">
                                 Show me how it works
@@ -80,6 +81,17 @@ export const Navbar: React.FC = () => {
                             {link.label}
                         </a>
                     ))}
+                    <a
+                        href="https://docs.google.com/forms/d/e/1FAIpQLSdGuo9L7pk76kpYWZQxzRVHa3fPZtvq231rapR8o2VLKGXIxA/viewform"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={() => setMobileOpen(false)}
+                        className="mt-4"
+                    >
+                        <button className="btn btn-brand w-full py-4 text-base">
+                            Show me how it works
+                        </button>
+                    </a>
                 </motion.div>
             )}
         </>
