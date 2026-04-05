@@ -97,6 +97,7 @@ body {
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 4rem;
 }
 
 a {
@@ -162,19 +163,16 @@ p {
 
 /* Section vertical rhythm */
 .section {
-  padding: var(--space-20) 0;
+  padding-top: 2rem;
+  padding-bottom: var(--space-20);
   position: relative;
 }
 
 @media (max-width: 768px) {
   .section {
-    padding: var(--space-12) 0;
+    padding-top: 2rem;
+    padding-bottom: var(--space-12);
   }
-}
-
-/* Scroll offset for sticky nav */
-#home, #viz, #sparky, #about, #contact {
-  scroll-margin-top: 64px;
 }
 
 
