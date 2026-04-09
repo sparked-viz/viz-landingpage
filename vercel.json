@@ -1,0 +1,8 @@
+{
+    "rewrites": [
+        {
+            "source": "/viz/:path*",
+            "destination": "https://viz3-alpha.vercel.app/viz/:path*"
+        }
+    ]
+}
