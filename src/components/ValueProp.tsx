@@ -51,7 +51,6 @@ const features: Feature[] = [
     },
 ];
 
-
 const MediaCarousel: React.FC<{
     media: Array<{ src: string; type: 'gif' | 'mp4' }>;
     dark?: boolean;
@@ -66,10 +65,12 @@ const MediaCarousel: React.FC<{
         return () => clearInterval(interval);
     }, [media.length]);
 
+    if (!media || media.length === 0) return null;
+
     const current = media[currentIndex];
 
     return (
-        <div className={`relative w-full rounded-xl overflow-hidden ${dark ? 'media-frame-dark' : 'media-frame'}`}>
+        <div className={`relative w-full rounded-2xl overflow-hidden shadow-2xl ${dark ? 'bg-bg-dark ring-1 ring-white/10' : 'bg-bg-secondary ring-1 ring-ink/5'}`}>
             <div className="relative w-full aspect-video bg-bg-dark">
                 {current.type === 'gif' ? (
                     <img
@@ -79,6 +80,7 @@ const MediaCarousel: React.FC<{
                     />
                 ) : (
                     <video
+                        key={current.src}
                         src={current.src}
                         autoPlay
                         loop
@@ -121,13 +123,15 @@ const MediaCarousel: React.FC<{
     );
 };
 
-
 export const ValueProp: React.FC = () => {
     return (
-        <section className="section bg-bg-secondary">
-            <div className="container">
+        <section className="section bg-bg overflow-hidden py-24 md:py-32">
+            <div className="container relative">
+                {/* Background Decoration */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand/5 blur-3xl rounded-full pointer-events-none" />
+
                 {/* Header */}
-                <div className="text-center mb-16 px-4">
+                <div className="text-center mb-20 md:mb-32 relative z-10 px-4">
                     <motion.p
                         initial={{ opacity: 0, y: 16 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -140,67 +144,63 @@ export const ValueProp: React.FC = () => {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        transition={{ delay: 0.08 }}
+                        transition={{ delay: 0.1 }}
                         className="text-display-xl font-bold text-ink max-w-2xl mx-auto mb-4"
                     >
                         Designed for clarity. Built for speed.
                     </motion.h2>
                 </div>
 
-                <div className="max-w-4xl mx-auto space-y-6">
-                    {features.map((feature, index) => (
-                        <motion.div
-                            key={index}
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: index * 0.1, duration: 0.5 }}
-                            className={feature.dark ? 'card-dark p-8 md:p-12' : 'card-raised p-8 md:p-12'}
-                        >
-                            <div className="space-y-8">
-                                {/* Title block */}
-                                <div className="flex items-start gap-4">
-                                    <div className={`w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 ${feature.dark ? 'bg-white/10 text-white' : 'bg-bg-secondary text-ink'}`}>
-                                        {feature.icon}
-                                    </div>
-                                    <div>
-                                        <h3 className={`text-display-lg font-bold mb-1 ${feature.dark ? 'text-white' : 'text-ink'}`}>
+                {/* Alternating Layout */}
+                <div className="max-w-6xl mx-auto space-y-32 md:space-y-40 px-4 sm:px-6 lg:px-8">
+                    {features.map((feature, index) => {
+                        const isEven = index % 2 === 0;
+                        const allMedia = feature.benefits
+                            .filter(b => b.media)
+                            .map(b => ({ src: b.media!, type: b.mediaType || 'mp4' as const }))
+                            .concat(feature.sharedMedia || []);
+
+                        return (
+                            <motion.div
+                                key={index}
+                                initial={{ opacity: 0, y: 40 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true, margin: "-100px" }}
+                                transition={{ duration: 0.7 }}
+                                className={`flex flex-col lg:flex-row gap-12 lg:gap-20 items-center ${isEven ? '' : 'lg:flex-row-reverse'}`}
+                            >
+                                {/* Text Content */}
+                                <div className={`flex-1 w-full z-10 max-w-xl ${isEven ? '' : 'lg:text-right'}`}>
+                                    <div className="mb-8">
+                                        <h3 className={`text-3xl md:text-4xl font-bold mb-3 ${feature.dark ? 'text-white' : 'text-ink'}`}>
                                             {feature.title}
                                         </h3>
-                                        <p className={`text-body-md ${feature.dark ? 'text-white-dim' : 'text-ink-secondary'}`}>
+                                        <p className={`text-body-lg ${feature.dark ? 'text-white/70' : 'text-ink-secondary'}`}>
                                             {feature.subtitle}
                                         </p>
                                     </div>
+
+                                    <ul className="space-y-6">
+                                        {feature.benefits.map((benefit, i) => (
+                                            <li key={i} className={`flex gap-4 items-start ${isEven ? '' : 'lg:flex-row-reverse'}`}>
+                                                <div className="w-7 h-7 rounded-full bg-brand/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                                    <div className="w-2.5 h-2.5 rounded-full bg-brand" />
+                                                </div>
+                                                <p className={`text-body-lg font-medium leading-relaxed ${feature.dark ? 'text-white/90' : 'text-ink'}`}>
+                                                    {benefit.text}
+                                                </p>
+                                            </li>
+                                        ))}
+                                    </ul>
                                 </div>
 
-                                {/* Benefits */}
-                                <ul className="space-y-8">
-                                    {feature.benefits.map((benefit, i) => (
-                                        <li key={i} className="space-y-5">
-                                            <p className={`text-body-lg font-medium ${feature.dark ? 'text-white/80' : 'text-ink-secondary'}`}>
-                                                — {benefit.text}
-                                            </p>
-                                            {benefit.media && (
-                                                <div className="w-[calc(100%+4rem)] -mx-8 sm:w-full sm:mx-0">
-                                                    <MediaCarousel
-                                                        media={[{ src: benefit.media, type: benefit.mediaType || 'mp4' }]}
-                                                        dark={feature.dark}
-                                                    />
-                                                </div>
-                                            )}
-                                        </li>
-                                    ))}
-                                </ul>
-
-                                {/* Shared media carousel */}
-                                {feature.sharedMedia && feature.sharedMedia.length > 0 && (
-                                    <div className="w-[calc(100%+4rem)] -mx-8 sm:w-full sm:mx-0">
-                                        <MediaCarousel media={feature.sharedMedia} dark={feature.dark} />
-                                    </div>
-                                )}
-                            </div>
-                        </motion.div>
-                    ))}
+                                {/* Media Content */}
+                                <div className="flex-1 w-full z-10 w-full max-w-2xl">
+                                    <MediaCarousel media={allMedia} dark={feature.dark} />
+                                </div>
+                            </motion.div>
+                        );
+                    })}
                 </div>
             </div>
         </section>
