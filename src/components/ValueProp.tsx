@@ -152,7 +152,7 @@ export const ValueProp: React.FC = () => {
                 </div>
 
                 {/* Alternating Layout */}
-                <div className="max-w-6xl mx-auto space-y-32 md:space-y-40 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto lg:-mx-12 space-y-32 md:space-y-30 px-4 sm:px-6 lg:px-8">
                     {features.map((feature, index) => {
                         const isEven = index % 2 === 0;
                         const allMedia = feature.benefits

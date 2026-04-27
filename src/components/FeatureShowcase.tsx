@@ -30,7 +30,7 @@ export const FeatureShowcase: React.FC = () => {
                                 <strong>Slow down</strong> intricate processes, <strong>zoom into</strong> critical details, and <strong>guide your students' attention</strong> exactly where it needs to be.
                             </p>
                         </div>
-                        <div className="media-frame w-[calc(100%+3rem)] -mx-6 sm:w-full sm:mx-0">
+                        <div className="media-frame md:w-[calc(100%+3rem)] sm:mx-2 md:-mx-2 lg:-mx-6 md:w-full md:mx-0">
                             <video
                                 src="/resources/irodov-bolt-lift-1min-reduced-size.mp4"
                                 autoPlay

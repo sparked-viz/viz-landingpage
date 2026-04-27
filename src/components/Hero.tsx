@@ -104,7 +104,7 @@ export const Hero: React.FC = () => {
                     initial={{ opacity: 0, y: 48 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.9, delay: 0.4 }}
-                    className="w-[calc(100%+3rem)] -mx-6 sm:w-full sm:mx-0 media-frame"
+                    className="lg:-mx-6 sm:mx-10 md:w-full md:mx-10 media-frame"
                 >
                     <video
                         ref={videoRef}
@@ -115,7 +115,7 @@ export const Hero: React.FC = () => {
                         playsInline
                         preload="metadata"
                     >
-                        <source src="/resources/nishant-jindal-reduced-size.mp4#t=12" type="video/mp4" />
+                        <source src="/resources/theorem_6.1_triangles.mp4#t=10" type="video/mp4" />
                     </video>
                 </motion.div>
             </div>
