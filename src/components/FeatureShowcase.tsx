@@ -32,7 +32,7 @@ export const FeatureShowcase: React.FC = () => {
                         </div>
                         <div className="media-frame md:w-[calc(100%+3rem)] sm:mx-2 md:-mx-2 lg:-mx-6 md:w-full md:mx-0">
                             <video
-                                src="/resources/irodov-bolt-lift-1min-reduced-size.mp4"
+                                src="/resources/irodov-bolt-lift-1min-reduced-size.mp4#t=30"
                                 autoPlay
                                 loop
                                 muted
