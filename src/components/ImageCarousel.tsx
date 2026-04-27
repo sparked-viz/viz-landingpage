@@ -95,7 +95,7 @@ export const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.3 }}
-                    className="text-body-md text-ink-secondary sm:text-body-lg max-w-2xl mx-auto"
+                    className="text-body-md text-ink-secondary sm:text-body-lg max-w-2xl mx-auto carousel-caption"
                     dangerouslySetInnerHTML={{ __html: images[currentIndex].caption || '' }}
                 />
             </div>
