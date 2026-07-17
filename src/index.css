@@ -199,7 +199,11 @@ p {
 /* Scroll offset for sticky nav */
 #home,
 #viz,
-#sparky,
+#ease-of-use,
+#save-time,
+#see-whats-possible,
+#creator-stories,
+#audience-reactions,
 #about,
 #contact {
   scroll-margin-top: 64px;

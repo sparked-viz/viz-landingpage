@@ -1,8 +1,10 @@
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { FeatureShowcase } from './components/FeatureShowcase';
-import { ValueProp } from './components/ValueProp';
-import { Sparky } from './components/Sparky';
+import { EaseOfUse } from './components/EaseOfUse';
+import { SaveTime } from './components/SaveTime';
+import { SeeWhatsPossible } from './components/SeeWhatsPossible';
+import { CreatorStories } from './components/CreatorStories';
 import { AboutUs } from './components/AboutUs';
 import { ContactForm } from './components/ContactForm';
 import { Footer } from './components/Footer';
@@ -14,9 +16,10 @@ function App() {
       <main>
         <Hero />
         <FeatureShowcase />
-        <ValueProp />
-        {/* <DemoSection /> */}
-        <Sparky />
+        <EaseOfUse />
+        <SaveTime />
+        <SeeWhatsPossible />
+        <CreatorStories />
         <AboutUs />
         <ContactForm />
       </main>

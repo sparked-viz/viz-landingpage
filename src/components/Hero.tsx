@@ -60,7 +60,7 @@ export const Hero: React.FC = () => {
                     transition={{ duration: 0.6, delay: 0.08 }}
                     className="text-display-2xl font-bold text-ink max-w-4xl mb-6 px-4"
                 >
-                    Teach with clarity, not repetition.
+                    Create visual explanations your students instantly understand.
                 </motion.h1>
 
                 <motion.p
@@ -69,45 +69,36 @@ export const Hero: React.FC = () => {
                     transition={{ duration: 0.6, delay: 0.16 }}
                     className="text-body-lg text-ink-secondary max-w-xl mb-10 px-4"
                 >
-                    Students understand faster. Classes move forward.
+                    Turn complex ideas into engaging lessons, videos, and reels—without learning animation software or writing code.
                 </motion.p>
 
                 <motion.div
                     initial={{ opacity: 0, y: 24 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.24 }}
-                    className="flex flex-col sm:flex-row items-center gap-3 mb-4"
+                    className="flex flex-col sm:flex-row items-center gap-3 mb-20"
                 >
                     <a
                         href="https://www.sparkedunow.com/viz"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="btn btn-primary text-base px-8 py-3 inline-flex items-center gap-2 w-full sm:w-auto justify-center"
-                        onClick={() => trackCTAClick('Take me there')}
+                        onClick={() => trackCTAClick('Start Creating Free')}
                     >
-                        Take me there
+                        Start Creating Free
                         <ArrowRight className="w-4 h-4" />
                     </a>
                     <a
-                        href="https://docs.google.com/forms/d/e/1FAIpQLSdGuo9L7pk76kpYWZQxzRVHa3fPZtvq231rapR8o2VLKGXIxA/viewform"
+                        href="https://www.sparkedunow.com/viz"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="btn btn-outline text-base px-8 py-3 inline-flex items-center gap-2 w-full sm:w-auto justify-center"
-                        onClick={() => trackCTAClick('Show me how it works')}
+                        onClick={() => trackCTAClick('Watch 60s Demo')}
                     >
-                        Show me how it works
+                        Watch 60s Demo
                         <ArrowRight className="w-4 h-4" />
                     </a>
                 </motion.div>
-
-                <motion.p
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.5, delay: 0.32 }}
-                    className="text-label-sm text-ink-tertiary mb-20"
-                >
-                    Limited early access spots available
-                </motion.p>
 
                 {/* Video */}
                 <motion.div
