@@ -60,6 +60,35 @@ export const FeatureShowcase: React.FC = () => {
                             <ImageCarousel images={CAROUSEL_IMAGES} />
                         </div>
                     </motion.div>
+
+                    {/* Feature 3: Tutorial Video */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5 }}
+                        className="flex flex-col gap-16 w-full max-w-4xl"
+                    >
+                        <div className="space-y-6 px-4 sm:px-0 text-center">
+                            <h3 className="text-display-lg font-bold text-ink">How to use the software?</h3>
+                            <p className="text-body-lg text-ink-secondary max-w-lg mx-auto">
+                                Watch a quick tutorial to discover how easy it is to start building your own visual models.
+                            </p>
+                        </div>
+                        <div className="media-frame md:w-[calc(100%+3rem)] sm:mx-2 md:-mx-2 lg:-mx-6 md:w-full md:mx-0 aspect-video">
+                            <iframe 
+                                width="100%" 
+                                height="100%" 
+                                src="https://www.youtube.com/embed/Z_et_htHGH4?si=Fo-1Az06njjmTDZF" 
+                                title="YouTube video player" 
+                                frameBorder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                referrerPolicy="strict-origin-when-cross-origin" 
+                                allowFullScreen
+                                className="w-full h-full"
+                            ></iframe>
+                        </div>
+                    </motion.div>
                 </div>
             </div>
         </section>

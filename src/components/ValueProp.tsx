@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Zap, Brain, ChevronLeft, ChevronRight } from 'lucide-react';
+import { SocialLinks } from './SocialLinks';
 
 interface Benefit {
     text: string;
@@ -202,6 +203,19 @@ export const ValueProp: React.FC = () => {
                         );
                     })}
                 </div>
+            </div>
+            
+            {/* Social Links */}
+            <div className="container relative z-10 mt-24 md:mt-32">
+                <motion.div 
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="flex flex-col items-center justify-center border-t border-ink/5 pt-12"
+                >
+                    <p className="text-body font-medium text-ink-secondary mb-6">Connect with us</p>
+                    <SocialLinks iconClassName="w-6 h-6" />
+                </motion.div>
             </div>
         </section>
     );

@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Mail, Phone } from 'lucide-react';
 import { trackCTAClick } from '../analytics';
+import { SocialLinks } from './SocialLinks';
 
 export const ContactForm: React.FC = () => {
     return (
@@ -81,6 +82,17 @@ export const ContactForm: React.FC = () => {
                             <Phone className="w-4 h-4" />
                             +91 93806 68711
                         </a>
+                    </motion.div>
+
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.48 }}
+                        className="mt-12 pt-12 border-t border-ink/5"
+                    >
+                        <p className="text-sm font-medium text-ink-secondary mb-6">Follow our journey</p>
+                        <SocialLinks iconClassName="w-5 h-5" />
                     </motion.div>
                 </div>
             </div>

@@ -79,10 +79,20 @@ export const Hero: React.FC = () => {
                     className="flex flex-col sm:flex-row items-center gap-3 mb-4"
                 >
                     <a
+                        href="https://www.sparkedunow.com/viz"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn btn-primary text-base px-8 py-3 inline-flex items-center gap-2 w-full sm:w-auto justify-center"
+                        onClick={() => trackCTAClick('Take me there')}
+                    >
+                        Take me there
+                        <ArrowRight className="w-4 h-4" />
+                    </a>
+                    <a
                         href="https://docs.google.com/forms/d/e/1FAIpQLSdGuo9L7pk76kpYWZQxzRVHa3fPZtvq231rapR8o2VLKGXIxA/viewform"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="btn btn-brand text-base px-8 py-3 inline-flex items-center gap-2 w-full sm:w-auto justify-center"
+                        className="btn btn-outline text-base px-8 py-3 inline-flex items-center gap-2 w-full sm:w-auto justify-center"
                         onClick={() => trackCTAClick('Show me how it works')}
                     >
                         Show me how it works
