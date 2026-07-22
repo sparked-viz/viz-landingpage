@@ -18,11 +18,11 @@
         },
         {
             "source": "/admin",
-            "destination": "https://admin-app-prajwals-projects-b7e2ee03.vercel.app/admin"
+            "destination": "https://admin-app-phi-two.vercel.app/admin"
         },
         {
             "source": "/admin/:path*",
-            "destination": "https://admin-app-prajwals-projects-b7e2ee03.vercel.app/admin/:path*"
+            "destination": "https://admin-app-phi-two.vercel.app/admin/:path*"
         }
     ]
 }
