@@ -7,6 +7,22 @@
         {
             "source": "/viz/:path*",
             "destination": "https://viz3-alpha.vercel.app/viz/:path*"
+        },
+        {
+            "source": "/queries",
+            "destination": "https://query-app-five.vercel.app/queries"
+        },
+        {
+            "source": "/queries/:path*",
+            "destination": "https://query-app-five.vercel.app/queries/:path*"
+        },
+        {
+            "source": "/admin",
+            "destination": "https://admin-app-prajwals-projects-b7e2ee03.vercel.app/admin"
+        },
+        {
+            "source": "/admin/:path*",
+            "destination": "https://admin-app-prajwals-projects-b7e2ee03.vercel.app/admin/:path*"
         }
     ]
 }
