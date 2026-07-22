@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SparkEdu — Where Education Meets Innovation</title>
+<link rel="icon" type="image/png" href="assets/sparkEd_logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--primary:#0D3A8C;--accent:#2E9D48}
+html,body{overflow-x:hidden}
+body{margin:0;background:oklch(98.5% 0.003 250);font-family:'Manrope',system-ui,sans-serif;color:#1D1D1D}
+.hand{font-family:'Caveat',cursive;font-weight:600}
+a{color:var(--primary)}
+a:hover{color:#092a66}
+.headline{font-family:'Manrope',system-ui,sans-serif;font-weight:800;letter-spacing:-0.02em;color:var(--primary);line-height:1.22;text-align:center;text-wrap:pretty}
+.accent{color:var(--accent)}
+.subhead{font-size:15px;color:#555;text-align:center;margin-top:10px}
+.section{padding:clamp(40px,9vw,64px) clamp(20px,6vw,32px);display:flex;flex-direction:column;align-items:center;position:relative}
+.site-header{padding:18px 48px;flex-wrap:wrap;row-gap:10px}
+.nav-links{display:flex;gap:32px;font-size:15px}
+.nav-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;width:34px;height:34px;background:none;border:none;cursor:pointer;padding:0}
+.nav-toggle span{display:block;width:100%;height:2px;background:var(--primary);border-radius:2px;transition:transform .25s ease,opacity .25s ease}
+.nav-toggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-toggle.open span:nth-child(2){opacity:0}
+.nav-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.site-footer{padding:64px 32px 40px}
+.mark{position:absolute;pointer-events:none;user-select:none}
+.plus{font-weight:700;line-height:1;opacity:.55}
+.section-alt{background:repeating-linear-gradient(transparent 0 35px, color-mix(in oklch, var(--primary) 4%, transparent) 35px 36px), oklch(96.5% 0.005 250)}
+.shot{border-radius:14px;box-shadow:0 8px 24px rgba(0,0,0,.12);display:block}
+@keyframes rise{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+@supports (animation-timeline: view()){ .section{animation:rise both;animation-timeline:view();animation-range:entry 0% entry 30%} }
+@media (prefers-reduced-motion: reduce){ .section{animation:none} }
+.frame{transition:transform .35s ease,box-shadow .35s ease}
+.frame:hover{transform:translateY(-4px);box-shadow:0 2px 4px rgba(0,0,0,.06),0 20px 44px rgba(13,58,140,.16)}
+.chip{transition:transform .2s ease}
+.chip:hover{transform:translateY(-1px)}
+.tcard-head{display:flex;align-items:center;gap:10px}
+.tcard-avatar{width:38px;height:38px;border-radius:50%;background:#EDEDED;flex:none}
+.tcard-name{width:70px;height:12px;border-radius:6px;background:#D9D9D9}
+.tcard-link{margin-left:auto;background:#fff;border:1px solid rgba(0,0,0,.14);border-radius:999px;padding:4px 12px;font-size:12px;color:var(--primary);font-weight:600}
+.tcard-quote{font-size:13px;line-height:1.5}
+.tv-social .tcard{background:#fff;border:1px solid rgba(0,0,0,.1);border-radius:12px;padding:18px;display:flex;flex-direction:column;gap:12px;transition:box-shadow .25s ease,transform .25s ease}
+.tv-social .tcard:hover{box-shadow:0 10px 26px rgba(13,58,140,.1);transform:translateY(-2px)}
+.tv-social .tcard-quote{padding:0;color:#333}
+.tv-social .tcard-link{border:none;background:color-mix(in oklch, var(--primary) 8%, white)}
+.testimonial-rail{display:grid;grid-auto-flow:column;grid-template-rows:repeat(3,1fr);grid-auto-columns:82%;gap:14px 20px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:thin;padding-bottom:10px}
+.testimonial-rail .tcard{scroll-snap-align:start}
+@media (min-width:760px){
+  .testimonial-rail{grid-template-rows:repeat(2,1fr);grid-auto-columns:calc((100% - 40px) / 3)}
+}
+.frame{border-radius:12px;overflow:hidden;background:#fff;border:1px solid rgba(0,0,0,.08);box-shadow:0 1px 2px rgba(0,0,0,.06),0 12px 32px rgba(13,58,140,.1);width:100%}
+.frame-bar{height:38px;background:linear-gradient(#F6F6F4,#ECECEA);display:flex;align-items:center;gap:8px;padding:0 14px;border-bottom:1px solid rgba(0,0,0,.1);position:relative}
+.frame-dot{width:12px;height:12px;border-radius:50%}
+.dot-r{background:#D9D9D5;box-shadow:inset 0 0 0 .5px rgba(0,0,0,.12)}
+.dot-y{background:#D9D9D5;box-shadow:inset 0 0 0 .5px rgba(0,0,0,.12)}
+.dot-g{background:#D9D9D5;box-shadow:inset 0 0 0 .5px rgba(0,0,0,.12)}
+.frame-img{width:calc(100% - 20px);margin:10px;border-radius:10px;height:auto;display:block}
+.badge{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:7px;font-size:14px;font-weight:700;flex-shrink:0}
+.badge-x{background:#EE4878;color:#fff}
+.badge-check{background:var(--accent);color:#fff}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border-radius:999px;font-size:13px;font-weight:600}
+.chip-x{background:#FCE8ED;color:#EE4878}
+.chip-check{background:#E4F4E7;color:var(--accent)}
+
+/* interactive elements previously driven by the dc-runtime "style-hover" attr */
+.nav-link{cursor:pointer;transition:color .2s}
+.nav-link:hover{color:var(--primary)}
+.cta-btn{cursor:pointer;transition:transform .25s ease, box-shadow .25s ease, filter .25s ease}
+.cta-btn:hover{color:#fff;transform:translateY(-2px);box-shadow:0 10px 24px rgba(13,58,140,.35);filter:brightness(1.1)}
+.btn-outline{cursor:pointer;transition:background .2s,color .2s}
+.btn-outline:hover{background:var(--primary);color:#fff}
+.btn-primary{cursor:pointer;transition:transform .2s,box-shadow .2s,filter .2s}
+.btn-primary:hover{color:#fff;transform:translateY(-2px);box-shadow:0 10px 22px rgba(13,58,140,.3);filter:brightness(1.1)}
+.social-link{transition:transform .2s,box-shadow .2s,border-color .2s}
+.social-link:hover{transform:translateY(-3px);box-shadow:0 8px 18px rgba(13,58,140,.15);border-color:color-mix(in oklch, var(--primary) 40%, transparent)}
+
+/* hero video — source has ~30px letterboxing top/bottom baked in (960x720, content is 960x660); crop it via object-fit:cover */
+.hero-video-wrap{position:relative;width:100%;aspect-ratio:16/11;overflow:hidden;border-radius:14px;box-shadow:0 8px 24px rgba(0,0,0,.12)}
+.hero-video{width:100%;height:100%;object-fit:cover;display:block}
+
+/* video carousel (section 2) */
+.video-carousel{position:relative;width:100%;max-width:760px;height:clamp(420px,55vw,560px);margin-top:48px;overflow:hidden}
+.vc-track{position:relative;width:100%;height:100%}
+.vc-slide{position:absolute;top:0;bottom:0;left:50%;width:clamp(220px,26vw,300px);border-radius:14px;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,.16);background:#000;transition:transform .5s ease,opacity .5s ease;cursor:pointer}
+.vc-slide video{width:100%;height:100%;object-fit:cover;display:block}
+.vc-label{position:absolute;bottom:0;left:0;right:0;padding:10px 12px;background:linear-gradient(transparent,rgba(0,0,0,.75));color:#fff;font-size:13px;font-weight:600}
+.vc-btn{position:absolute;top:50%;transform:translateY(-50%);width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.92);border:1px solid rgba(0,0,0,.1);box-shadow:0 2px 6px rgba(0,0,0,.15);display:flex;align-items:center;justify-content:center;font-size:20px;line-height:1;cursor:pointer;z-index:20;color:#1D1D1D}
+.vc-btn:hover{background:#fff}
+.vc-prev{left:0}
+.vc-next{right:0}
+
+@media (max-width:640px){
+  .site-header{padding:14px 18px;justify-content:center}
+  .site-header{position:relative}
+  .nav-toggle{display:flex}
+  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:center;gap:18px;background:#fff;padding:20px 0;box-shadow:0 8px 20px rgba(0,0,0,.1);z-index:50}
+  .nav-links.open{display:flex}
+  .site-footer{padding:44px 20px 32px}
+  .video-carousel{height:clamp(300px,88vw,420px)}
+  .vc-slide{width:clamp(160px,44vw,220px)}
+}
+</style>
+</head>
+
+<body>
+<div>
+<div class="site-header" style="display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(0,0,0,.08)">
+  <div style="display:flex;align-items:center;gap:10px">
+    <img src="assets/sparkEd_logo.png" alt="SparkEdu logo" style="width:34px;height:34px;display:block">
+    <span style="font-weight:700;font-size:18px;color:var(--primary)">SparkEdu</span>
+  </div>
+  <div class="nav-links" id="navLinks" style="font-weight:500">
+    <span class="nav-link">Home</span><span class="nav-link">Viz</span><span class="nav-link">About Us</span><span class="nav-link">Contact</span>
+  </div>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
+    <span></span><span></span><span></span>
+  </button>
+</div>
+
+<div class="section" style="padding-top:80px">
+  <span class="mark plus" style="top:64px;left:12%;font-size:15px;color:color-mix(in oklch, var(--primary) 45%, transparent)">+</span>
+  <span class="mark plus" style="top:340px;right:5%;font-size:12px;color:color-mix(in oklch, var(--accent) 50%, transparent)">+</span>
+  <span class="mark plus" style="top:300px;left:7%;font-size:13px;color:oklch(72% 0.11 80 / .6)">+</span>
+  <span class="mark plus" style="top:80px;right:4%;font-size:14px;color:oklch(72% 0.11 25 / .55)">+</span>
+  <div class="hand" style="font-size:clamp(17px,4.5vw,22px);color:oklch(60% 0.11 25);transform:rotate(-2deg);margin-bottom:10px">teach visually</div>
+  <div class="headline" style="font-size:clamp(26px,7vw,44px);max-width:720px;position:relative">Create <span class="accent">visual explanations</span> your students instantly understand.
+    <svg class="mark" style="top:-26px;right:-34px" width="30" height="30" viewBox="0 0 28 28" aria-hidden="true"><g stroke="oklch(72% 0.11 80)" stroke-width="2.5" stroke-linecap="round"><line x1="14" y1="3" x2="14" y2="9"></line><line x1="5" y1="7" x2="9" y2="11"></line><line x1="23" y1="7" x2="19" y2="11"></line></g></svg>
+  </div>
+  <a href="https://www.sparkedunow.com/viz" target="_blank" rel="noopener noreferrer" class="cta-btn" style="margin-top:28px;background:var(--primary);color:#fff;padding:11px 24px;border-radius:999px;font-weight:600;font-size:14px;text-decoration:none">Start Creating →</a>
+  <div style="position:relative;width:100%;max-width:900px;margin-top:96px">
+    <svg style="position:absolute;top:-46px;left:-56px;pointer-events:none" width="170" height="170" viewBox="0 0 170 170" aria-hidden="true"><circle cx="85" cy="85" r="76" fill="none" stroke="color-mix(in oklch, var(--primary) 20%, transparent)" stroke-width="1.5" stroke-dasharray="7 8"></circle></svg>
+    <div class="hand" style="position:absolute;top:-64px;right:5%;font-size:clamp(19px,4.8vw,25px);transform:rotate(-3deg)">a real lesson, made in Viz
+      <svg width="38" height="34" viewBox="0 0 38 34" style="position:absolute;right:-30px;top:16px" aria-hidden="true"><path d="M4 4 C 20 6, 28 15, 30 27" fill="none" stroke="#1D1D1D" stroke-width="1.5" stroke-linecap="round"></path><path d="M24 23 L30 29 L33 21" fill="none" stroke="#1D1D1D" stroke-width="1.5" stroke-linecap="round"></path></svg>
+    </div>
+    <div class="hero-video-wrap">
+      <video class="hero-video" src="videos/hero/theorem_6.1_triangles.mp4" autoplay muted loop playsinline aria-label="Theorem 6.1 triangle-ratio proof demo"></video>
+    </div>
+  </div>
+</div>
+
+<div class="section section-alt">
+  <svg width="46" height="56" viewBox="0 0 46 56" aria-hidden="true" style="margin-bottom:14px;opacity:.8"><path d="M23 2 C 8 16, 38 28, 23 44" fill="none" stroke="color-mix(in oklch, var(--primary) 40%, transparent)" stroke-width="1.6" stroke-dasharray="5 6" stroke-linecap="round"></path><circle cx="23" cy="50" r="3.5" fill="var(--accent)"></circle></svg>
+  <div class="hand" style="font-size:clamp(17px,4.5vw,22px);color:oklch(60% 0.11 25);transform:rotate(-2deg);margin-bottom:10px">made to travel</div>
+  <div class="headline" style="font-size:clamp(21px,5.5vw,32px);max-width:600px;position:relative">Create explanations <span class="accent">worth sharing.</span>
+    <svg class="mark" style="bottom:-8px;right:-30px" width="24" height="24" viewBox="0 0 28 28" aria-hidden="true"><g stroke="oklch(72% 0.11 25)" stroke-width="2.5" stroke-linecap="round" opacity=".7"><line x1="14" y1="3" x2="14" y2="9"></line><line x1="5" y1="7" x2="9" y2="11"></line><line x1="23" y1="7" x2="19" y2="11"></line></g></svg>
+  </div>
+  <div class="subhead">From classroom to social feed</div>
+  <div style="display:flex;flex-direction:column;align-items:center;gap:16px;margin-top:24px;font-size:15px;font-weight:500">
+    <div style="display:flex;align-items:center;gap:28px">
+      <span style="display:flex;align-items:center;gap:9px"><span style="width:24px;height:24px;border-radius:7px;background:#F9AB00;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M1.6367 1.6367C.7322 1.6367 0 2.369 0 3.2734v17.4532c0 .9045.7322 1.6367 1.6367 1.6367h20.7266c.9045 0 1.6367-.7322 1.6367-1.6367V3.2734c0-.9045-.7322-1.6367-1.6367-1.6367H1.6367zm.545 2.1817h19.6367v16.3632h-2.7266v-1.0898h-4.9102v1.0898h-12V3.8184zM12 8.1816c-.9046 0-1.6367.7322-1.6367 1.6368 0 .9045.7321 1.6367 1.6367 1.6367.9046 0 1.6367-.7322 1.6367-1.6367 0-.9046-.7321-1.6368-1.6367-1.6368zm-4.3633 1.9102c-.6773 0-1.2285.5493-1.2285 1.2266 0 .6772.5512 1.2265 1.2285 1.2265.6773 0 1.2266-.5493 1.2266-1.2265 0-.6773-.5493-1.2266-1.2266-1.2266zm8.7266 0c-.6773 0-1.2266.5493-1.2266 1.2266 0 .6772.5493 1.2265 1.2266 1.2265.6773 0 1.2285-.5493 1.2285-1.2265 0-.6773-.5512-1.2266-1.2285-1.2266zM12 12.5449c-1.179 0-2.4128.4012-3.1484 1.0059-.384-.1198-.8043-.1875-1.2149-.1875-1.3136 0-2.7285.695-2.7285 1.5586v.8965h14.1836v-.8965c0-.8637-1.4149-1.5586-2.7285-1.5586-.4106 0-.831.0677-1.2149.1875-.7356-.6047-1.9694-1.0059-3.1484-1.0059Z"/></svg></span>Classroom</span>
+      <span style="display:flex;align-items:center;gap:9px"><span style="width:24px;height:24px;border-radius:7px;background:#1a1a1a;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></span>Tik-Tok</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:28px">
+      <span style="display:flex;align-items:center;gap:9px"><span style="width:24px;height:24px;border-radius:7px;background:#d6249f;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg></span>Instagram</span>
+      <span style="display:flex;align-items:center;gap:9px"><span style="width:24px;height:24px;border-radius:7px;background:#FF0000;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></span>Youtube</span>
+    </div>
+  </div>
+
+  <div class="video-carousel" id="videoCarousel">
+    <div class="vc-track">
+      <div class="vc-slide" data-index="0"><video src="videos/carousel/showcase-geometry.mp4" muted loop playsinline></video><div class="vc-label">Geometry</div></div>
+      <div class="vc-slide" data-index="1"><video src="videos/carousel/showcase-physics.mp4" muted loop playsinline></video><div class="vc-label">Physics</div></div>
+      <div class="vc-slide" data-index="2"><video src="videos/carousel/showcase-calculus.mp4" muted loop playsinline></video><div class="vc-label">Calculus</div></div>
+    </div>
+    <button class="vc-btn vc-prev" aria-label="Previous video">‹</button>
+    <button class="vc-btn vc-next" aria-label="Next video">›</button>
+  </div>
+</div>
+
+<div class="section">
+  <svg width="46" height="56" viewBox="0 0 46 56" aria-hidden="true" style="margin-bottom:14px;opacity:.8"><path d="M23 2 C 8 16, 38 28, 23 44" fill="none" stroke="color-mix(in oklch, var(--primary) 40%, transparent)" stroke-width="1.6" stroke-dasharray="5 6" stroke-linecap="round"></path><circle cx="23" cy="50" r="3.5" fill="var(--accent)"></circle></svg>
+  <div class="hand" style="font-size:clamp(17px,4.5vw,22px);color:oklch(60% 0.11 25);transform:rotate(-2deg);margin-bottom:10px">the honest comparison</div>
+  <div class="headline" style="font-size:clamp(21px,5.5vw,32px);max-width:600px">Looks professional, <span class="accent">feels like teaching</span></div>
+  <div class="subhead">If you can teach on a whiteboard, you can use Viz</div>
+  <div style="display:flex;flex-direction:column;gap:36px;margin-top:40px;width:100%;max-width:560px">
+    <div>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px"><span class="badge badge-x">✗</span><span style="font-size:16px;font-weight:600">No coding required</span></div>
+      <div class="frame"><div class="frame-bar"><span class="frame-dot dot-r"></span><span class="frame-dot dot-y"></span><span class="frame-dot dot-g"></span></div><img src="assets/Frame15.png" class="frame-img" style="filter:grayscale(80%) opacity(.85)" alt="Code editor screenshot"></div>
+    </div>
+    <div>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px"><span class="badge badge-x">✗</span><span style="font-size:16px;font-weight:600">No complex animation tools</span></div>
+      <div class="frame"><div class="frame-bar"><span class="frame-dot dot-r"></span><span class="frame-dot dot-y"></span><span class="frame-dot dot-g"></span></div><img src="assets/Frame16.png" class="frame-img" style="filter:grayscale(80%) opacity(.85)" alt="Blender 3D animation screenshot"></div>
+    </div>
+    <div>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px"><span class="badge badge-x">✗</span><span style="font-size:16px;font-weight:600">No complex timelines</span></div>
+      <div class="frame"><div class="frame-bar"><span class="frame-dot dot-r"></span><span class="frame-dot dot-y"></span><span class="frame-dot dot-g"></span></div><img src="assets/Frame19.png" class="frame-img" style="filter:grayscale(80%) opacity(.85)" alt="Video editing timeline screenshot"></div>
+    </div>
+    <div>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px"><span class="badge badge-check">✓</span><span style="font-size:16px;font-weight:600;color:var(--accent)">Designed for educators</span></div>
+      <div class="frame"><img src="assets/Frame52.png" class="frame-img" alt="Teacher pointing at interactive whiteboard, teaching a classroom"></div>
+      <div class="hand" style="text-align:right;font-size:20px;transform:rotate(-2deg);margin-top:8px;color:var(--accent)">where every lesson starts</div>
+    </div>
+  </div>
+  <div style="margin-top:48px;text-align:center;max-width:520px">
+    <div style="font-weight:700;font-size:20px;color:var(--primary);margin-bottom:16px">Summary</div>
+    <div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center">
+      <span class="chip chip-x">✗ No complex animation tools</span>
+      <span class="chip chip-x">✗ No complex timelines</span>
+      <span class="chip chip-x">✗ No coding required</span>
+      <span class="chip chip-check">✓ Designed for educators</span>
+      <span class="chip chip-check">✓ Designed by educators</span>
+    </div>
+  </div>
+</div>
+
+<div class="section section-alt">
+  <svg width="46" height="56" viewBox="0 0 46 56" aria-hidden="true" style="margin-bottom:14px;opacity:.8"><path d="M23 2 C 8 16, 38 28, 23 44" fill="none" stroke="color-mix(in oklch, var(--primary) 40%, transparent)" stroke-width="1.6" stroke-dasharray="5 6" stroke-linecap="round"></path><circle cx="23" cy="50" r="3.5" fill="var(--accent)"></circle></svg>
+  <div class="hand" style="font-size:clamp(17px,4.5vw,22px);color:oklch(60% 0.11 25);transform:rotate(-2deg);margin-bottom:10px">one continuous flow</div>
+  <div class="headline" style="font-size:clamp(21px,5.5vw,32px);max-width:600px"><span class="accent">Spend your time explaining</span> - not editing.</div>
+  <div class="subhead">Everything happens in one place.</div>
+  <div style="position:relative;margin-top:40px;width:100%;max-width:420px;padding-left:52px;padding-right:16px;box-sizing:border-box">
+    <div style="position:absolute;left:18px;top:20px;bottom:20px;width:0;border-left:2px dashed color-mix(in oklch, var(--primary) 30%, transparent)"></div>
+    <div style="position:relative;margin-bottom:52px">
+      <div style="position:absolute;left:-46px;top:0;width:26px;height:26px;border-radius:50%;background:#fff;border:1.5px solid color-mix(in oklch, var(--primary) 45%, transparent);color:var(--primary);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600">1</div>
+      <div style="font-size:16px;font-weight:600;line-height:26px;margin-bottom:10px">Create</div>
+      <div class="frame"><div class="frame-bar"><span class="frame-dot dot-r"></span><span class="frame-dot dot-y"></span><span class="frame-dot dot-g"></span></div><img src="assets/Frame30.png" class="frame-img" alt="In-app geometry drawing toolkit"></div>
+    </div>
+    <div style="position:relative;margin-bottom:52px">
+      <div style="position:absolute;left:-46px;top:0;width:26px;height:26px;border-radius:50%;background:#fff;border:1.5px solid color-mix(in oklch, var(--primary) 45%, transparent);color:var(--primary);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600">2</div>
+      <div style="font-size:16px;font-weight:600;line-height:26px;margin-bottom:10px">Record</div>
+      <div class="frame"><div class="frame-bar"><span class="frame-dot dot-r"></span><span class="frame-dot dot-y"></span><span class="frame-dot dot-g"></span></div><img src="assets/Frame31.png" class="frame-img" alt="In-app screen and voice recording UI"></div>
+    </div>
+    <div style="position:relative">
+      <div style="position:absolute;left:-46px;top:0;width:26px;height:26px;border-radius:50%;background:#fff;border:1.5px solid color-mix(in oklch, var(--primary) 45%, transparent);color:var(--primary);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600">3</div>
+      <div style="font-size:16px;font-weight:600;line-height:26px;margin-bottom:10px">Edit and export</div>
+      <div class="frame"><div class="frame-bar"><span class="frame-dot dot-r"></span><span class="frame-dot dot-y"></span><span class="frame-dot dot-g"></span></div><img src="assets/Frame35.png" class="frame-img" alt="Export MP4 panel with audio waveform"></div>
+      <div class="hand" style="font-size:20px;transform:rotate(-2deg);margin-top:8px;color:oklch(60% 0.11 25)">straight to 9:16 — ready for shorts</div>
+    </div>
+  </div>
+  <div style="margin-top:40px;text-align:center">
+    <div style="font-weight:700;font-size:20px;color:var(--primary);margin-bottom:16px">Key Points</div>
+    <div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center">
+      <span class="chip chip-x">✗ No switching between tools</span>
+      <span class="chip chip-check">✓ One integrated workflow</span>
+    </div>
+  </div>
+</div>
+
+<div class="section" style="background-image:radial-gradient(color-mix(in oklch, var(--primary) 9%, transparent) 1.2px, transparent 1.2px);background-size:24px 24px">
+  <svg class="mark" style="top:36px;right:8%" width="90" height="90" viewBox="0 0 90 90" aria-hidden="true"><circle cx="45" cy="45" r="38" fill="none" stroke="color-mix(in oklch, var(--primary) 30%, transparent)" stroke-width="1.5" stroke-dasharray="6 7"></circle><circle cx="62" cy="34" r="7" fill="oklch(72% 0.11 80 / .35)"></circle></svg>
+  <svg width="46" height="56" viewBox="0 0 46 56" aria-hidden="true" style="margin-bottom:14px;opacity:.8"><path d="M23 2 C 8 16, 38 28, 23 44" fill="none" stroke="color-mix(in oklch, var(--primary) 40%, transparent)" stroke-width="1.6" stroke-dasharray="5 6" stroke-linecap="round"></path><circle cx="23" cy="50" r="3.5" fill="var(--accent)"></circle></svg>
+  <div class="hand" style="font-size:clamp(17px,4.5vw,22px);color:oklch(60% 0.11 25);transform:rotate(-2deg);margin-bottom:10px">any subject, any level</div>
+  <div class="headline" style="font-size:clamp(21px,5.5vw,32px);max-width:600px">Build the explanation - <span class="accent">you're imagining</span></div>
+  <div class="subhead">Any idea, turned into a visual explanation.</div>
+  <img src="assets/Frame41.png" class="shot" style="max-width:900px;width:100%;margin-top:40px" alt="Six chalkboard-style math problem cards across competitions and levels">
+</div>
+
+<div class="section section-alt">
+  <svg class="mark" style="top:40px;left:9%" width="74" height="46" viewBox="0 0 74 46" aria-hidden="true"><rect x="2" y="10" width="24" height="24" fill="none" stroke="color-mix(in oklch, var(--accent) 40%, transparent)" stroke-width="1.5"></rect><circle cx="46" cy="22" r="13" fill="none" stroke="oklch(72% 0.11 25 / .45)" stroke-width="1.5"></circle><path d="M58 40 L66 26 L74 40 Z" fill="none" stroke="color-mix(in oklch, var(--primary) 35%, transparent)" stroke-width="1.5"></path></svg>
+  <svg width="46" height="56" viewBox="0 0 46 56" aria-hidden="true" style="margin-bottom:14px;opacity:.8"><path d="M23 2 C 8 16, 38 28, 23 44" fill="none" stroke="color-mix(in oklch, var(--primary) 40%, transparent)" stroke-width="1.6" stroke-dasharray="5 6" stroke-linecap="round"></path><circle cx="23" cy="50" r="3.5" fill="var(--accent)"></circle></svg>
+  <div class="hand" style="font-size:clamp(17px,4.5vw,22px);color:oklch(60% 0.11 25);transform:rotate(-2deg);margin-bottom:10px">in their words</div>
+  <div class="headline" style="font-size:clamp(21px,5.5vw,32px);max-width:600px">Educators creating with <span class="accent">SparkEdu.</span></div>
+  <div class="subhead">Real reactions from the students and audiences who watch these lessons.</div>
+  <div class="tv-social testimonial-rail" style="margin-top:44px;max-width:900px;width:100%">
+        <div class="tcard">
+      <div class="tcard-head"><div class="tcard-avatar"></div><div class="tcard-name"></div><div class="tcard-link">Link</div></div>
+      <div class="tcard-quote">Congratulations on your videos. Clear explanations and extremely well-made animations.</div>
+    </div>
+        <div class="tcard">
+      <div class="tcard-head"><div class="tcard-avatar"></div><div class="tcard-name"></div><div class="tcard-link">Link</div></div>
+      <div class="tcard-quote">Incredible video, simple explanation combined with a fluid animation.</div>
+    </div>
+        <div class="tcard">
+      <div class="tcard-head"><div class="tcard-avatar"></div><div class="tcard-name"></div><div class="tcard-link">Link</div></div>
+      <div class="tcard-quote">Finally a way to record a full proof without switching between three apps.</div>
+    </div>
+        <div class="tcard">
+      <div class="tcard-head"><div class="tcard-avatar"></div><div class="tcard-name"></div><div class="tcard-link">Link</div></div>
+      <div class="tcard-quote">My students actually watch these before class now instead of skimming the textbook.</div>
+    </div>
+        <div class="tcard">
+      <div class="tcard-head"><div class="tcard-avatar"></div><div class="tcard-name"></div><div class="tcard-link">Link</div></div>
+      <div class="tcard-quote">Made a TikTok explainer in one lunch break — never thought I'd say that about a proof.</div>
+    </div>
+        <div class="tcard">
+      <div class="tcard-head"><div class="tcard-avatar"></div><div class="tcard-name"></div><div class="tcard-link">Link</div></div>
+      <div class="tcard-quote">Feels exactly like drawing on my classroom whiteboard, just recorded.</div>
+    </div>
+        <div class="tcard">
+      <div class="tcard-head"><div class="tcard-avatar"></div><div class="tcard-name"></div><div class="tcard-link">Link</div></div>
+      <div class="tcard-quote">Our comments went from confused questions to "wait this actually makes sense."</div>
+    </div>
+        <div class="tcard">
+      <div class="tcard-head"><div class="tcard-avatar"></div><div class="tcard-name"></div><div class="tcard-link">Link</div></div>
+      <div class="tcard-quote">Exported straight to 9:16 for Instagram — no re-editing needed at all.</div>
+    </div>
+        <div class="tcard">
+      <div class="tcard-head"><div class="tcard-avatar"></div><div class="tcard-name"></div><div class="tcard-link">Link</div></div>
+      <div class="tcard-quote">Wish I'd had this in college — the animation makes the geometry click instantly.</div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <svg width="46" height="56" viewBox="0 0 46 56" aria-hidden="true" style="margin-bottom:14px;opacity:.8"><path d="M23 2 C 8 16, 38 28, 23 44" fill="none" stroke="color-mix(in oklch, var(--primary) 40%, transparent)" stroke-width="1.6" stroke-dasharray="5 6" stroke-linecap="round"></path><circle cx="23" cy="50" r="3.5" fill="var(--accent)"></circle></svg>
+  <div class="hand" style="font-size:clamp(17px,4.5vw,22px);color:oklch(60% 0.11 25);transform:rotate(-2deg);margin-bottom:10px">simple, honest pricing</div>
+  <div class="headline" style="font-size:clamp(21px,5.5vw,32px);max-width:600px">Start free. <span class="accent">Upgrade when it clicks.</span></div>
+  <div class="subhead">Every plan includes the full create → record → export workflow.</div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;margin-top:44px;max-width:960px;width:100%;align-items:stretch">
+    <div style="background:#fff;border:1px solid rgba(0,0,0,.1);border-radius:14px;padding:28px;display:flex;flex-direction:column;gap:16px">
+      <div style="font-weight:700;font-size:17px">Starter</div>
+      <div><span style="font-size:clamp(28px,7vw,38px);font-weight:800;letter-spacing:-0.02em">$0</span><span style="font-size:14px;color:#6f6f6b"> / forever</span></div>
+      <div style="font-size:13px;color:#6f6f6b;line-height:1.5">For trying your first visual lessons.</div>
+      <div style="display:flex;flex-direction:column;gap:10px;font-size:14px;margin-top:4px">
+        <span>✓ 3 lessons per month</span>
+        <span>✓ Full drawing &amp; recording tools</span>
+        <span>✓ 720p export with watermark</span>
+      </div>
+      <div class="btn-outline" style="margin-top:auto;border:1.5px solid var(--primary);color:var(--primary);border-radius:999px;padding:11px 0;text-align:center;font-weight:600;font-size:14px">Get started</div>
+    </div>
+    <div style="background:#fff;border:2px solid var(--primary);border-radius:14px;padding:28px;display:flex;flex-direction:column;gap:16px;position:relative;box-shadow:0 12px 32px rgba(13,58,140,.12)">
+      <div class="hand" style="position:absolute;top:-16px;right:22px;background:var(--accent);color:#fff;border-radius:999px;padding:2px 14px;font-size:17px;transform:rotate(2deg)">most popular</div>
+      <div style="font-weight:700;font-size:17px">Educator</div>
+      <div><span style="font-size:clamp(28px,7vw,38px);font-weight:800;letter-spacing:-0.02em">$12</span><span style="font-size:14px;color:#6f6f6b"> / month</span></div>
+      <div style="font-size:13px;color:#6f6f6b;line-height:1.5">For teachers and creators publishing every week.</div>
+      <div style="display:flex;flex-direction:column;gap:10px;font-size:14px;margin-top:4px">
+        <span>✓ Unlimited lessons</span>
+        <span>✓ 4K export, no watermark</span>
+        <span>✓ 9:16 shorts &amp; 16:9 presets</span>
+        <span>✓ Voiceover enhancement</span>
+      </div>
+      <a href="https://www.sparkedunow.com/viz" target="_blank" rel="noopener noreferrer" class="btn-primary" style="margin-top:auto;background:var(--primary);color:#fff;border-radius:999px;padding:12px 0;text-align:center;font-weight:600;font-size:14px;text-decoration:none;display:block">Start creating</a>
+    </div>
+    <div style="background:#fff;border:1px solid rgba(0,0,0,.1);border-radius:14px;padding:28px;display:flex;flex-direction:column;gap:16px">
+      <div style="font-weight:700;font-size:17px">School</div>
+      <div><span style="font-size:clamp(28px,7vw,38px);font-weight:800;letter-spacing:-0.02em">Custom</span></div>
+      <div style="font-size:13px;color:#6f6f6b;line-height:1.5">For departments and whole-school rollouts.</div>
+      <div style="display:flex;flex-direction:column;gap:10px;font-size:14px;margin-top:4px">
+        <span>✓ Everything in Educator</span>
+        <span>✓ Shared lesson library</span>
+        <span>✓ Admin &amp; student seats</span>
+        <span>✓ Priority support</span>
+      </div>
+      <div class="btn-outline" style="margin-top:auto;border:1.5px solid var(--primary);color:var(--primary);border-radius:999px;padding:11px 0;text-align:center;font-weight:600;font-size:14px">Talk to us</div>
+    </div>
+  </div>
+</div>
+
+<div class="site-footer" style="background:oklch(96.5% 0.005 250);color:#1D1D1D;border-top:1px solid rgba(0,0,0,.08);display:flex;flex-direction:column;align-items:center;position:relative;overflow:hidden">
+  <svg style="position:absolute;top:-40px;left:-40px;pointer-events:none" width="200" height="200" viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="88" fill="none" stroke="color-mix(in oklch, var(--primary) 18%, transparent)" stroke-width="1.5" stroke-dasharray="7 8"></circle></svg>
+  <div class="hand" style="font-size:24px;color:oklch(60% 0.11 25);transform:rotate(-2deg);margin-bottom:6px">lessons in your feed, every week</div>
+  <div class="headline" style="font-size:clamp(22px,5.5vw,30px);max-width:560px">Follow the lessons where you already scroll.</div>
+  <div style="display:flex;gap:16px;margin-top:32px">
+    <a href="https://www.youtube.com/@SparkEdu-v4v" target="_blank" rel="noopener noreferrer" class="social-link" style="width:44px;height:44px;border-radius:12px;background:#fff;border:1px solid rgba(0,0,0,.1);color:var(--primary);display:flex;align-items:center;justify-content:center" aria-label="YouTube"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"></path></svg></a>
+    <a href="https://www.instagram.com/sparkedu_technologies/" target="_blank" rel="noopener noreferrer" class="social-link" style="width:44px;height:44px;border-radius:12px;background:#fff;border:1px solid rgba(0,0,0,.1);color:var(--primary);display:flex;align-items:center;justify-content:center" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 1 0 0-12.324zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405a1.441 1.441 0 0 1-2.88 0 1.44 1.44 0 0 1 2.88 0z"></path></svg></a>
+    <a href="https://www.linkedin.com/company/sparkedu-technologies" target="_blank" rel="noopener noreferrer" class="social-link" style="width:44px;height:44px;border-radius:12px;background:#fff;border:1px solid rgba(0,0,0,.1);color:var(--primary);display:flex;align-items:center;justify-content:center" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path></svg></a>
+  </div>
+  <div style="margin-top:56px;padding-top:20px;border-top:1px solid rgba(0,0,0,.08);width:100%;max-width:560px;display:flex;align-items:center;justify-content:center;gap:8px;color:#6f6f6b">
+    <img src="assets/sparkEd_logo.png" alt="" style="width:20px;height:20px;display:block">
+    <span style="font-weight:700;font-size:13px">SparkEdu</span>
+    <span style="font-size:12px">© 2026</span>
+  </div>
+</div>
+</div>
+
+<script>
+(function(){
+  var navToggle = document.getElementById('navToggle');
+  var navLinks = document.getElementById('navLinks');
+  if (navToggle && navLinks) {
+    navToggle.addEventListener('click', function(){
+      var isOpen = navLinks.classList.toggle('open');
+      navToggle.classList.toggle('open', isOpen);
+      navToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+    navLinks.querySelectorAll('.nav-link').forEach(function(link){
+      link.addEventListener('click', function(){
+        navLinks.classList.remove('open');
+        navToggle.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+})();
+
+(function(){
+  var track = document.querySelector('#videoCarousel .vc-track');
+  var slides = Array.prototype.slice.call(track.querySelectorAll('.vc-slide'));
+  var videos = slides.map(function(s){ return s.querySelector('video'); });
+  var current = 0;
+  var autoplayTimer;
+
+  function render(){
+    var n = slides.length;
+    slides.forEach(function(slide, i){
+      var diff = i - current;
+      if (diff > n / 2) diff -= n;
+      else if (diff < -n / 2) diff += n;
+      var scale = diff === 0 ? 1 : 0.8;
+      var opacity = Math.abs(diff) <= 1 ? 1 : 0;
+      slide.style.transform = 'translateX(calc(-50% + ' + (diff * 62) + '%)) scale(' + scale + ')';
+      slide.style.opacity = opacity;
+      slide.style.zIndex = String(10 - Math.abs(diff));
+      slide.style.pointerEvents = Math.abs(diff) <= 1 ? 'auto' : 'none';
+      var v = videos[i];
+      if (i === current) { v.currentTime = 0; v.play().catch(function(){}); }
+      else v.pause();
+    });
+  }
+
+  function goTo(i){
+    current = (i + slides.length) % slides.length;
+    render();
+  }
+  function next(){ goTo(current + 1); }
+  function prev(){ goTo(current - 1); }
+  function restartAutoplay(){
+    clearInterval(autoplayTimer);
+    autoplayTimer = setInterval(next, 5000);
+  }
+
+  document.querySelector('.vc-next').addEventListener('click', function(){ next(); restartAutoplay(); });
+  document.querySelector('.vc-prev').addEventListener('click', function(){ prev(); restartAutoplay(); });
+  slides.forEach(function(slide, i){
+    slide.addEventListener('click', function(){ goTo(i); restartAutoplay(); });
+  });
+
+  render();
+  restartAutoplay();
+})();
+</script>
+</body>
+</html>

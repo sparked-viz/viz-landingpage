@@ -1,0 +1,20 @@
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+.vercel
+
+# Raw design-tool exports — not part of the deployed static site
+SparkEdu Landing Page*.html
+*.dc.html
+export-src*.html
+support.js
+uploads/
+.thumbnail
