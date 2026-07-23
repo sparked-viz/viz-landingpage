@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About Us — SparkEdu</title>
+
+<!-- Google Analytics 4 (Measurement ID: G-13QMPHM9F1) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-13QMPHM9F1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'G-13QMPHM9F1');
+</script>
+
+<link rel="icon" type="image/png" href="assets/sparkEd_logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--primary:#0D3A8C;--accent:#2E9D48}
+html,body{overflow-x:hidden}
+body{margin:0;background:oklch(98.5% 0.003 250);font-family:'Manrope',system-ui,sans-serif;color:#1D1D1D}
+.hand{font-family:'Caveat',cursive;font-weight:600}
+a{color:var(--primary)}
+a:hover{color:#092a66}
+.headline{font-family:'Manrope',system-ui,sans-serif;font-weight:800;letter-spacing:-0.02em;color:var(--primary);line-height:1.22;text-align:center;text-wrap:pretty}
+.accent{color:var(--accent)}
+.subhead{font-size:15px;color:#555;text-align:center;margin-top:10px}
+.section{padding:clamp(40px,9vw,64px) clamp(20px,6vw,32px);display:flex;flex-direction:column;align-items:center;position:relative}
+.site-header{padding:18px 48px;flex-wrap:wrap;row-gap:10px}
+.nav-links{display:flex;gap:32px;font-size:15px}
+.nav-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;width:34px;height:34px;background:none;border:none;cursor:pointer;padding:0}
+.nav-toggle span{display:block;width:100%;height:2px;background:var(--primary);border-radius:2px;transition:transform .25s ease,opacity .25s ease}
+.nav-toggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-toggle.open span:nth-child(2){opacity:0}
+.nav-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.site-footer{padding:64px 32px 40px}
+.mark{position:absolute;pointer-events:none;user-select:none}
+.plus{font-weight:700;line-height:1;opacity:.55}
+.section-alt{background:repeating-linear-gradient(transparent 0 35px, color-mix(in oklch, var(--primary) 4%, transparent) 35px 36px), oklch(96.5% 0.005 250)}
+@keyframes rise{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+@supports (animation-timeline: view()){ .section{animation:rise both;animation-timeline:view();animation-range:entry 0% entry 30%} }
+@media (prefers-reduced-motion: reduce){ .section{animation:none} }
+.nav-link{cursor:pointer;transition:color .2s;color:#1D1D1D;text-decoration:none}
+.nav-link:hover{color:var(--primary)}
+.cta-btn{cursor:pointer;transition:transform .25s ease, box-shadow .25s ease, filter .25s ease}
+.cta-btn:hover{color:#fff;transform:translateY(-2px);box-shadow:0 10px 24px rgba(13,58,140,.35);filter:brightness(1.1)}
+.social-link{transition:transform .2s,box-shadow .2s,border-color .2s}
+.social-link:hover{transform:translateY(-3px);box-shadow:0 8px 18px rgba(13,58,140,.15);border-color:color-mix(in oklch, var(--primary) 40%, transparent)}
+.prose{max-width:620px;font-size:16px;line-height:1.75;color:#333}
+.prose p{margin:0 0 22px}
+.founder-card{background:#fff;border:1px solid rgba(0,0,0,.1);border-radius:14px;padding:28px;display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center;transition:box-shadow .25s ease,transform .25s ease;max-width:300px;width:100%}
+.founder-card:hover{box-shadow:0 12px 30px rgba(13,58,140,.12);transform:translateY(-3px)}
+.founder-photo{width:120px;height:120px;border-radius:50%;overflow:hidden;border:2px solid color-mix(in oklch, var(--primary) 20%, transparent)}
+.founder-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.founder-li{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:9px;background:#fff;border:1px solid rgba(0,0,0,.12);color:var(--primary);transition:transform .2s,box-shadow .2s}
+.founder-li:hover{transform:translateY(-2px);box-shadow:0 6px 14px rgba(13,58,140,.15)}
+@media (max-width:640px){
+  .site-header{padding:14px 18px;justify-content:center;position:relative}
+  .nav-toggle{display:flex}
+  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:center;gap:18px;background:#fff;padding:20px 0;box-shadow:0 8px 20px rgba(0,0,0,.1);z-index:50}
+  .nav-links.open{display:flex}
+  .site-footer{padding:44px 20px 32px}
+}
+</style>
+</head>
+
+<body>
+<div>
+<div class="site-header" style="display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(0,0,0,.08)">
+  <a href="index.html" style="display:flex;align-items:center;gap:10px;text-decoration:none">
+    <img src="assets/sparkEd_logo.png" alt="SparkEdu logo" style="width:34px;height:34px;display:block">
+    <span style="font-weight:700;font-size:18px;color:var(--primary)">SparkEdu</span>
+  </a>
+  <div class="nav-links" id="navLinks" style="font-weight:500">
+    <a class="nav-link" href="index.html">Home</a><a class="nav-link" href="about.html" style="color:var(--primary);font-weight:700">About Us</a><a class="nav-link" href="#contact">Contact</a>
+  </div>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
+    <span></span><span></span><span></span>
+  </button>
+</div>
+
+<div class="section" style="padding-top:80px">
+  <span class="mark plus" style="top:64px;left:12%;font-size:15px;color:color-mix(in oklch, var(--primary) 45%, transparent)">+</span>
+  <span class="mark plus" style="top:280px;right:6%;font-size:12px;color:color-mix(in oklch, var(--accent) 50%, transparent)">+</span>
+  <span class="mark plus" style="top:240px;left:7%;font-size:13px;color:oklch(72% 0.11 80 / .6)">+</span>
+  <span class="mark plus" style="top:80px;right:4%;font-size:14px;color:oklch(72% 0.11 25 / .55)">+</span>
+  <div class="hand" style="font-size:clamp(17px,4.5vw,22px);color:oklch(60% 0.11 25);transform:rotate(-2deg);margin-bottom:10px">who we are</div>
+  <div class="headline" style="font-size:clamp(26px,7vw,44px);max-width:760px;position:relative">Technology that lets educators teach exactly as they imagine.
+    <svg class="mark" style="top:-26px;right:-34px" width="30" height="30" viewBox="0 0 28 28" aria-hidden="true"><g stroke="oklch(72% 0.11 80)" stroke-width="2.5" stroke-linecap="round"><line x1="14" y1="3" x2="14" y2="9"></line><line x1="5" y1="7" x2="9" y2="11"></line><line x1="23" y1="7" x2="19" y2="11"></line></g></svg>
+  </div>
+  <div class="subhead" style="max-width:520px">SparkEdu builds educator-first tools that remove technical barriers between a great explanation and the students who need it.</div>
+  <div style="width:208px;height:208px;border-radius:50%;background:#fff;border:1.5px dashed color-mix(in oklch, var(--primary) 40%, transparent);display:flex;align-items:center;justify-content:center;margin-top:36px">
+    <img src="assets/viz_logo.png" alt="Viz logo" style="width:150px;height:150px;display:block">
+  </div>
+</div>
+
+<div class="section section-alt">
+  <svg width="46" height="56" viewBox="0 0 46 56" aria-hidden="true" style="margin-bottom:14px;opacity:.8"><path d="M23 2 C 8 16, 38 28, 23 44" fill="none" stroke="color-mix(in oklch, var(--primary) 40%, transparent)" stroke-width="1.6" stroke-dasharray="5 6" stroke-linecap="round"></path><circle cx="23" cy="50" r="3.5" fill="var(--accent)"></circle></svg>
+  <div class="hand" style="font-size:clamp(17px,4.5vw,22px);color:oklch(60% 0.11 25);transform:rotate(-2deg);margin-bottom:10px">why we exist</div>
+  <div class="headline" style="font-size:clamp(21px,5.5vw,32px);max-width:600px">The best teaching begins with <span class="accent">great explanations.</span></div>
+  <div class="prose" style="margin-top:32px">
+    <p>Yet turning those explanations into clear, engaging visual lessons often requires educators to learn complex software, switch between multiple tools, or compromise on quality.</p>
+    <p style="font-weight:700;color:var(--primary)">We're changing that.</p>
+    <p>Our first product, <strong>Viz</strong>, is a Visual Lesson Building Platform designed around how educators naturally think and explain — not how designers or video editors work. From idea to finished lesson, Viz brings creation, animation, presentation, recording, and editing into one seamless workflow, allowing educators to focus on teaching instead of production.</p>
+  </div>
+  <a href="index.html" class="cta-btn" style="margin-top:8px;background:var(--primary);color:#fff;padding:11px 24px;border-radius:999px;font-weight:600;font-size:14px;text-decoration:none" data-ga-event="cta_click" data-ga-label="See Viz in Action" data-ga-location="about">See Viz in action →</a>
+</div>
+
+<div class="section" style="background-image:radial-gradient(color-mix(in oklch, var(--primary) 9%, transparent) 1.2px, transparent 1.2px);background-size:24px 24px">
+  <svg class="mark" style="top:36px;right:8%" width="90" height="90" viewBox="0 0 90 90" aria-hidden="true"><circle cx="45" cy="45" r="38" fill="none" stroke="color-mix(in oklch, var(--primary) 30%, transparent)" stroke-width="1.5" stroke-dasharray="6 7"></circle><circle cx="62" cy="34" r="7" fill="oklch(72% 0.11 80 / .35)"></circle></svg>
+  <svg width="46" height="56" viewBox="0 0 46 56" aria-hidden="true" style="margin-bottom:14px;opacity:.8"><path d="M23 2 C 8 16, 38 28, 23 44" fill="none" stroke="color-mix(in oklch, var(--primary) 40%, transparent)" stroke-width="1.6" stroke-dasharray="5 6" stroke-linecap="round"></path><circle cx="23" cy="50" r="3.5" fill="var(--accent)"></circle></svg>
+  <div class="hand" style="font-size:clamp(17px,4.5vw,22px);color:oklch(60% 0.11 25);transform:rotate(-2deg);margin-bottom:10px">where we're going</div>
+  <div class="headline" style="font-size:clamp(21px,5.5vw,32px);max-width:640px">An ecosystem of educator-first tools.</div>
+  <div class="prose" style="margin-top:32px">
+    <p>Our vision extends beyond a single product. We are building tools that help teachers communicate ideas with greater clarity, creativity, and confidence.</p>
+    <p>We believe technology should adapt to teaching — not the other way around.</p>
+  </div>
+  <div class="hand" style="font-size:clamp(20px,5vw,26px);color:oklch(60% 0.11 25);transform:rotate(-2deg);max-width:560px;text-align:center;margin-top:8px;position:relative">
+    when educators can <span style="color:var(--accent)">express ideas without limitations</span>, students understand more, curiosity grows, and learning becomes more meaningful.
+    <svg style="position:absolute;bottom:-34px;left:50%;transform:translateX(-50%)" width="140" height="20" viewBox="0 0 140 20" aria-hidden="true"><path d="M4 12 C 40 4, 100 4, 136 12" fill="none" stroke="oklch(72% 0.11 80 / .7)" stroke-width="2.5" stroke-linecap="round"></path></svg>
+  </div>
+</div>
+
+<div class="section section-alt" id="team">
+  <svg width="46" height="56" viewBox="0 0 46 56" aria-hidden="true" style="margin-bottom:14px;opacity:.8"><path d="M23 2 C 8 16, 38 28, 23 44" fill="none" stroke="color-mix(in oklch, var(--primary) 40%, transparent)" stroke-width="1.6" stroke-dasharray="5 6" stroke-linecap="round"></path><circle cx="23" cy="50" r="3.5" fill="var(--accent)"></circle></svg>
+  <div class="hand" style="font-size:clamp(17px,4.5vw,22px);color:oklch(60% 0.11 25);transform:rotate(-2deg);margin-bottom:10px">the people behind it</div>
+  <div class="headline" style="font-size:clamp(21px,5.5vw,32px);max-width:600px">Meet the co-founders.</div>
+  <div class="subhead">Educators and builders, in equal measure.</div>
+  <div style="display:flex;flex-wrap:wrap;gap:24px;justify-content:center;margin-top:44px;width:100%;max-width:1000px">
+    <div class="founder-card">
+      <div class="founder-photo"><img src="assets/founder-1.png" alt="Kousthub S Kulkarni"></div>
+      <div style="font-weight:700;font-size:17px">Kousthub S Kulkarni</div>
+      <div style="font-size:13px;font-weight:600;color:#6f6f6b;text-transform:uppercase;letter-spacing:.06em">Co-founder</div>
+      <div style="font-size:13px;color:#6f6f6b;line-height:1.6">DevOps · Koch</div>
+      <a class="founder-li" href="https://www.linkedin.com/in/koustub-s-kulkarni-278b9a1b9/" target="_blank" rel="noopener noreferrer" aria-label="Kousthub on LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path></svg></a>
+    </div>
+    <div class="founder-card">
+      <div class="founder-photo"><img src="assets/founder-3.png" alt="Dr. Cristiano Benjamin"></div>
+      <div style="font-weight:700;font-size:17px">Dr. Cristiano Benjamin</div>
+      <div style="font-size:13px;font-weight:600;color:#6f6f6b;text-transform:uppercase;letter-spacing:.06em">Co-founder</div>
+      <div style="font-size:13px;color:#6f6f6b;line-height:1.6">Professor, UFOP (Universidade Federal de Ouro Preto) · Senior Full-Stack Architect · Creator of Matematizar</div>
+      <a class="founder-li" href="https://www.linkedin.com/in/cristianobenjamin/" target="_blank" rel="noopener noreferrer" aria-label="Cristiano on LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path></svg></a>
+    </div>
+    <div class="founder-card">
+      <div class="founder-photo"><img src="assets/founder-2.png" alt="Prajwal V Sangam"></div>
+      <div style="font-weight:700;font-size:17px">Prajwal V Sangam</div>
+      <div style="font-size:13px;font-weight:600;color:#6f6f6b;text-transform:uppercase;letter-spacing:.06em">Co-founder</div>
+      <div style="font-size:13px;color:#6f6f6b;line-height:1.6">IIT Bhubaneswar · Ex-Orangewood Labs (YC 2018) · Ex-TCS Research &amp; Innovation</div>
+      <a class="founder-li" href="https://www.linkedin.com/in/prajwalsangam24550a18b/" target="_blank" rel="noopener noreferrer" aria-label="Prajwal on LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path></svg></a>
+    </div>
+  </div>
+</div>
+
+<div class="site-footer" id="contact" style="background:oklch(96.5% 0.005 250);color:#1D1D1D;border-top:1px solid rgba(0,0,0,.08);display:flex;flex-direction:column;align-items:center;position:relative;overflow:hidden">
+  <svg style="position:absolute;top:-40px;left:-40px;pointer-events:none" width="200" height="200" viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="88" fill="none" stroke="color-mix(in oklch, var(--primary) 18%, transparent)" stroke-width="1.5" stroke-dasharray="7 8"></circle></svg>
+  <div class="hand" style="font-size:24px;color:oklch(60% 0.11 25);transform:rotate(-2deg);margin-bottom:6px">lessons in your feed, every week</div>
+  <div class="headline" style="font-size:clamp(22px,5.5vw,30px);max-width:560px">Follow the lessons where you already scroll.</div>
+  <div style="width:208px;height:208px;border-radius:50%;background:#fff;border:1.5px dashed color-mix(in oklch, var(--primary) 40%, transparent);display:flex;align-items:center;justify-content:center;margin-top:28px">
+    <img src="assets/viz_logo.png" alt="Viz logo" style="width:150px;height:150px;display:block">
+  </div>
+  <div style="display:flex;gap:16px;margin-top:32px">
+    <a href="https://www.youtube.com/@SparkEdu-v4v" target="_blank" rel="noopener noreferrer" class="social-link" style="width:44px;height:44px;border-radius:12px;background:#fff;border:1px solid rgba(0,0,0,.1);color:var(--primary);display:flex;align-items:center;justify-content:center" aria-label="YouTube" data-ga-event="social_click" data-ga-platform="YouTube"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"></path></svg></a>
+    <a href="https://www.instagram.com/sparkedu_technologies/" target="_blank" rel="noopener noreferrer" class="social-link" style="width:44px;height:44px;border-radius:12px;background:#fff;border:1px solid rgba(0,0,0,.1);color:var(--primary);display:flex;align-items:center;justify-content:center" aria-label="Instagram" data-ga-event="social_click" data-ga-platform="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 1 0 0-12.324zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405a1.441 1.441 0 0 1-2.88 0 1.44 1.44 0 0 1 2.88 0z"></path></svg></a>
+    <a href="https://www.linkedin.com/company/sparkedu-technologies" target="_blank" rel="noopener noreferrer" class="social-link" style="width:44px;height:44px;border-radius:12px;background:#fff;border:1px solid rgba(0,0,0,.1);color:var(--primary);display:flex;align-items:center;justify-content:center" aria-label="LinkedIn" data-ga-event="social_click" data-ga-platform="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path></svg></a>
+  </div>
+  <div style="display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:14px 40px;margin-top:40px;font-size:14px">
+    <a href="mailto:sparkedutechnologies@gmail.com" style="display:inline-flex;align-items:center;gap:8px;color:var(--primary);font-weight:600;text-decoration:none">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+      sparkedutechnologies@gmail.com
+    </a>
+    <span style="display:inline-flex;align-items:center;gap:8px;color:#8a6d5c">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+      Brazil · Cristiano Benjamin · <a href="tel:+5531996095978" style="color:var(--primary);font-weight:600;text-decoration:none">+55 31 99609 5978</a>
+    </span>
+    <span style="display:inline-flex;align-items:center;gap:8px;color:#8a6d5c">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+      India · Koustub S Kulkarni · <a href="tel:+919380668711" style="color:var(--primary);font-weight:600;text-decoration:none">+91 93806 68711</a>
+    </span>
+  </div>
+  <div style="margin-top:32px;padding-top:20px;border-top:1px solid rgba(0,0,0,.08);width:100%;max-width:560px;display:flex;align-items:center;justify-content:center;gap:8px;color:#6f6f6b">
+    <img src="assets/sparkEd_logo.png" alt="" style="width:20px;height:20px;display:block">
+    <span style="font-weight:700;font-size:13px">SparkEdu</span>
+    <span style="font-size:12px">© 2026</span>
+  </div>
+</div>
+</div>
+
+<script>
+function gaTrack(eventName, params){
+  if (typeof gtag === 'function') gtag('event', eventName, params || {});
+}
+
+(function(){
+  var navToggle = document.getElementById('navToggle');
+  var navLinks = document.getElementById('navLinks');
+  if (navToggle && navLinks) {
+    navToggle.addEventListener('click', function(){
+      var isOpen = navLinks.classList.toggle('open');
+      navToggle.classList.toggle('open', isOpen);
+      navToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+    navLinks.querySelectorAll('.nav-link').forEach(function(link){
+      link.addEventListener('click', function(){
+        navLinks.classList.remove('open');
+        navToggle.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+})();
+
+(function(){
+  document.addEventListener('click', function(e){
+    var el = e.target.closest('[data-ga-event]');
+    if (!el) return;
+    var params = {};
+    if (el.dataset.gaLabel) params.button_label = el.dataset.gaLabel;
+    if (el.dataset.gaLocation) params.location = el.dataset.gaLocation;
+    if (el.dataset.gaPlatform) params.platform = el.dataset.gaPlatform;
+    gaTrack(el.getAttribute('data-ga-event'), params);
+  });
+})();
+</script>
+</body>
+</html>
