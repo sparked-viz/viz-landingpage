@@ -18,12 +18,38 @@ const safeGtag = (...args: unknown[]) => {
  * Track a CTA button click.
  * Uses transport: 'beacon' to ensure the event is sent even as the page navigates away.
  * @param label - Human-readable label for the button (e.g. "Join as Creator Partner")
+ * @param location - Where on the page the CTA lives (e.g. "hero", "pricing_educator")
  */
-export const trackCTAClick = (label: string) => {
+export const trackCTAClick = (label: string, location?: string) => {
     safeGtag('event', 'cta_click', {
         button_label: label,
+        location,
         transport_type: 'beacon',
     });
+};
+
+/**
+ * Track a social link click in the footer.
+ * @param platform - e.g. "YouTube", "Instagram", "LinkedIn"
+ */
+export const trackSocialClick = (platform: string) => {
+    safeGtag('event', 'social_click', { platform });
+};
+
+/**
+ * Track interaction with the home page's video carousel.
+ * @param method - "next" | "prev" | "slide_click"
+ * @param videoName - the slide's label, when known
+ */
+export const trackCarouselInteract = (method: 'next' | 'prev' | 'slide_click', videoName?: string) => {
+    safeGtag('event', 'carousel_interact', { method, video_name: videoName });
+};
+
+/**
+ * Track a video reaching a playback-percentage milestone (25/50/75/100).
+ */
+export const trackVideoProgress = (videoName: string, percent: 25 | 50 | 75 | 100) => {
+    safeGtag('event', 'video_progress', { video_name: videoName, percent });
 };
 
 /**

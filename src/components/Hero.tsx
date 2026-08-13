@@ -1,125 +1,67 @@
-import React, { useRef, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
-import { trackCTAClick, trackVideoPlay, trackVideoWatchTime } from '../analytics';
+import { useRef } from 'react';
+import { trackCTAClick } from '../analytics';
+import { useVideoAnalytics } from '../hooks/useVideoAnalytics';
 
-export const Hero: React.FC = () => {
+export function Hero() {
     const videoRef = useRef<HTMLVideoElement>(null);
-    const lastReportedSecond = useRef(0);
-
-    useEffect(() => {
-        const video = videoRef.current;
-        if (!video) return;
-
-        const videoName = 'Hero Demo Video';
-
-        const handlePlay = () => { trackVideoPlay(videoName); };
-
-        const handleTimeUpdate = () => {
-            const currentSecond = Math.floor(video.currentTime);
-            if (currentSecond > 0 && currentSecond % 10 === 0 && currentSecond !== lastReportedSecond.current) {
-                lastReportedSecond.current = currentSecond;
-                trackVideoWatchTime(videoName, 10);
-            }
-        };
-
-        const handlePauseOrEnd = () => {
-            const remainder = Math.floor(video.currentTime) % 10;
-            if (remainder > 0) trackVideoWatchTime(videoName, remainder);
-        };
-
-        video.addEventListener('play', handlePlay);
-        video.addEventListener('timeupdate', handleTimeUpdate);
-        video.addEventListener('pause', handlePauseOrEnd);
-        video.addEventListener('ended', handlePauseOrEnd);
-
-        return () => {
-            video.removeEventListener('play', handlePlay);
-            video.removeEventListener('timeupdate', handleTimeUpdate);
-            video.removeEventListener('pause', handlePauseOrEnd);
-            video.removeEventListener('ended', handlePauseOrEnd);
-        };
-    }, []);
+    useVideoAnalytics(videoRef, 'Hero Demo');
 
     return (
-        <section id="home" className="bg-white pt-36 pb-24 overflow-hidden">
-            <div className="container flex flex-col items-center text-center">
+        <div className="section" style={{ paddingTop: 80 }}>
+            <span className="mark plus" style={{ top: 64, left: '12%', fontSize: 15, color: 'color-mix(in oklch, var(--primary) 45%, transparent)' }}>+</span>
+            <span className="mark plus" style={{ top: 340, right: '5%', fontSize: 12, color: 'color-mix(in oklch, var(--accent) 50%, transparent)' }}>+</span>
+            <span className="mark plus" style={{ top: 300, left: '7%', fontSize: 13, color: 'oklch(72% 0.11 80 / .6)' }}>+</span>
+            <span className="mark plus" style={{ top: 80, right: '4%', fontSize: 14, color: 'oklch(72% 0.11 25 / .55)' }}>+</span>
 
-                <motion.p
-                    initial={{ opacity: 0, y: 16 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5 }}
-                    className="overline-brand mb-6"
-                >
-                    SparkEdu · Where Education Meets Innovation
-                </motion.p>
+            <div className="hand" style={{ fontSize: 'clamp(17px,4.5vw,22px)', color: 'oklch(60% 0.11 25)', transform: 'rotate(-2deg)', marginBottom: 10 }}>
+                teach visually
+            </div>
+            <div className="headline" style={{ fontSize: 'clamp(26px,7vw,44px)', maxWidth: 720, position: 'relative' }}>
+                Create <span className="accent">visual explanations</span> your students instantly understand.
+                <svg className="mark" style={{ top: -26, right: -34 }} width="30" height="30" viewBox="0 0 28 28" aria-hidden="true">
+                    <g stroke="oklch(72% 0.11 80)" strokeWidth="2.5" strokeLinecap="round">
+                        <line x1="14" y1="3" x2="14" y2="9"></line>
+                        <line x1="5" y1="7" x2="9" y2="11"></line>
+                        <line x1="23" y1="7" x2="19" y2="11"></line>
+                    </g>
+                </svg>
+            </div>
 
-                <motion.h1
-                    initial={{ opacity: 0, y: 24 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.08 }}
-                    className="text-display-2xl font-bold text-ink max-w-4xl mb-6 px-4"
-                >
-                    Create visual explanations your students instantly understand.
-                </motion.h1>
+            <a
+                href="https://www.sparkedunow.com/viz"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="cta-btn"
+                style={{ marginTop: 28, background: 'var(--primary)', color: '#fff', padding: '11px 24px', borderRadius: 999, fontWeight: 600, fontSize: 14, textDecoration: 'none' }}
+                onClick={() => trackCTAClick('Start Creating', 'hero')}
+            >
+                Start Creating →
+            </a>
 
-                <motion.p
-                    initial={{ opacity: 0, y: 24 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.16 }}
-                    className="text-body-lg text-ink-secondary max-w-xl mb-10 px-4"
-                >
-                    Turn complex ideas into engaging lessons, videos, and reels—without learning animation software or writing code.
-                </motion.p>
-
-                <motion.div
-                    initial={{ opacity: 0, y: 24 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.24 }}
-                    className="flex flex-col sm:flex-row items-center gap-3 mb-20"
-                >
-                    <a
-                        href="https://www.sparkedunow.com/viz"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="btn btn-primary text-base px-8 py-3 inline-flex items-center gap-2 w-full sm:w-auto justify-center"
-                        onClick={() => trackCTAClick('Start Creating Free')}
-                    >
-                        Start Creating Free
-                        <ArrowRight className="w-4 h-4" />
-                    </a>
-                    <a
-                        href="https://www.sparkedunow.com/viz"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="btn btn-outline text-base px-8 py-3 inline-flex items-center gap-2 w-full sm:w-auto justify-center"
-                        onClick={() => trackCTAClick('Watch 60s Demo')}
-                    >
-                        Watch 60s Demo
-                        <ArrowRight className="w-4 h-4" />
-                    </a>
-                </motion.div>
-
-                {/* Video */}
-                <motion.div
-                    initial={{ opacity: 0, y: 48 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.9, delay: 0.4 }}
-                    className="lg:-mx-6 sm:mx-10 md:w-full md:mx-10 media-frame"
-                >
+            <div style={{ position: 'relative', width: '100%', maxWidth: 900, marginTop: 96 }}>
+                <svg style={{ position: 'absolute', top: -46, left: -56, pointerEvents: 'none' }} width="170" height="170" viewBox="0 0 170 170" aria-hidden="true">
+                    <circle cx="85" cy="85" r="76" fill="none" stroke="color-mix(in oklch, var(--primary) 20%, transparent)" strokeWidth="1.5" strokeDasharray="7 8"></circle>
+                </svg>
+                <div className="hand" style={{ position: 'absolute', top: -64, right: '5%', fontSize: 'clamp(19px,4.8vw,25px)', transform: 'rotate(-3deg)' }}>
+                    a real lesson, made in Viz
+                    <svg width="38" height="34" viewBox="0 0 38 34" style={{ position: 'absolute', right: -30, top: 16 }} aria-hidden="true">
+                        <path d="M4 4 C 20 6, 28 15, 30 27" fill="none" stroke="#1D1D1D" strokeWidth="1.5" strokeLinecap="round"></path>
+                        <path d="M24 23 L30 29 L33 21" fill="none" stroke="#1D1D1D" strokeWidth="1.5" strokeLinecap="round"></path>
+                    </svg>
+                </div>
+                <div className="hero-video-wrap">
                     <video
                         ref={videoRef}
-                        className="w-full aspect-video object-cover"
+                        className="hero-video"
+                        src="/videos/hero/theorem_6.1_triangles.mp4"
                         autoPlay
-                        loop
                         muted
+                        loop
                         playsInline
-                        preload="metadata"
-                    >
-                        <source src="/resources/theorem_6.1_triangles.mp4#t=10" type="video/mp4" />
-                    </video>
-                </motion.div>
+                        aria-label="Theorem 6.1 triangle-ratio proof demo"
+                    />
+                </div>
             </div>
-        </section>
+        </div>
     );
-};
+}

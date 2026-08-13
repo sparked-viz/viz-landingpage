@@ -99,7 +99,40 @@ module.exports = {
                 '250': '250ms',
                 '400': '400ms',
             },
+
+            typography: ({ theme }) => ({
+                DEFAULT: {
+                    css: {
+                        '--tw-prose-body': theme('colors.ink.secondary'),
+                        '--tw-prose-headings': theme('colors.ink.DEFAULT'),
+                        '--tw-prose-links': theme('colors.brand.DEFAULT'),
+                        '--tw-prose-bold': theme('colors.ink.DEFAULT'),
+                        '--tw-prose-bullets': theme('colors.brand.DEFAULT'),
+                        '--tw-prose-hr': theme('colors.line.DEFAULT'),
+                        '--tw-prose-th-borders': theme('colors.line.strong'),
+                        '--tw-prose-td-borders': theme('colors.line.DEFAULT'),
+                        '--tw-prose-quotes': theme('colors.ink.DEFAULT'),
+                        '--tw-prose-quote-borders': theme('colors.brand.DEFAULT'),
+                        '--tw-prose-code': theme('colors.ink.DEFAULT'),
+                        '--tw-prose-pre-bg': theme('colors.bg.secondary'),
+                        '--tw-prose-pre-code': theme('colors.ink.DEFAULT'),
+                        maxWidth: 'none',
+                        a: { fontWeight: '500', textDecoration: 'none' },
+                        'a:hover': { textDecoration: 'underline' },
+                        'code::before': { content: 'none' },
+                        'code::after': { content: 'none' },
+                        code: {
+                            backgroundColor: theme('colors.bg.secondary'),
+                            padding: '0.15em 0.4em',
+                            borderRadius: theme('borderRadius.sm'),
+                            fontWeight: '500',
+                        },
+                    },
+                },
+            }),
         },
     },
-    plugins: [],
+    plugins: [
+        require('@tailwindcss/typography'),
+    ],
 }
