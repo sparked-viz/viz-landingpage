@@ -74,6 +74,7 @@ export const GuideLayout: React.FC = () => {
                             return (
                                 <details
                                     key={group.key}
+                                    name="guide-nav-group"
                                     open={!comingSoon && groupHasActiveRoute(group, pathname)}
                                     className="group"
                                 >
@@ -105,6 +106,7 @@ export const GuideLayout: React.FC = () => {
                                         {group.subgroups?.map(sub => (
                                             <details
                                                 key={sub.key}
+                                                name={`guide-nav-sub-${group.key}`}
                                                 open={sub.docs.some(doc => doc.route === pathname)}
                                                 className="group/sub"
                                             >
