@@ -3,6 +3,7 @@ import { AboutHero } from '../components/AboutHero';
 import { WhyWeExist } from '../components/WhyWeExist';
 import { WhereWereGoing } from '../components/WhereWereGoing';
 import { TeamSection } from '../components/TeamSection';
+import { CompanyDetails } from '../components/CompanyDetails';
 
 export function AboutPage() {
     return (
@@ -14,6 +15,7 @@ export function AboutPage() {
             <WhyWeExist />
             <WhereWereGoing />
             <TeamSection />
+            <CompanyDetails />
         </>
     );
 }

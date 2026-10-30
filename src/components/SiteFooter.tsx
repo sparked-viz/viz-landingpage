@@ -1,5 +1,7 @@
 import type { CSSProperties } from 'react';
+import { Link } from 'react-router-dom';
 import { trackSocialClick } from '../analytics';
+import { COMPANY, COMPANY_ADDRESS, LEGAL_LINKS } from '../content/company';
 
 const socialLinkStyle: CSSProperties = {
     width: 44,
@@ -105,32 +107,36 @@ export function SiteFooter() {
 
             <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center', gap: '14px 40px', marginTop: 40, fontSize: 14 }}>
                 <a
-                    href="mailto:sparkedutechnologies@gmail.com"
+                    href={`mailto:${COMPANY.email}`}
                     style={{ display: 'inline-flex', alignItems: 'center', gap: 8, color: 'var(--primary)', fontWeight: 600, textDecoration: 'none' }}
                 >
                     <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                         <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                         <polyline points="22,6 12,13 2,6"></polyline>
                     </svg>
-                    sparkedutechnologies@gmail.com
+                    {COMPANY.email}
                 </a>
                 <span style={contactRowStyle}>
                     {phoneIcon}
-                    Brazil · Cristiano Benjamin · <a href="tel:+5531996095978" style={{ color: 'var(--primary)', fontWeight: 600, textDecoration: 'none' }}>+55 31 99609 5978</a>
-                </span>
-                <span style={contactRowStyle}>
-                    {phoneIcon}
-                    India · Koustub S Kulkarni · <a href="tel:+919380668711" style={{ color: 'var(--primary)', fontWeight: 600, textDecoration: 'none' }}>+91 93806 68711</a>
+                    <a href={`tel:${COMPANY.phone.tel}`} style={{ color: 'var(--primary)', fontWeight: 600, textDecoration: 'none' }}>{COMPANY.phone.display}</a>
                 </span>
             </div>
 
+            <nav className="footer-links" aria-label="Company and policies">
+                <Link to="/about">About Us</Link>
+                <a href="/#pricing">Pricing</a>
+                {LEGAL_LINKS.map(link => (
+                    <Link key={link.to} to={link.to}>{link.label}</Link>
+                ))}
+            </nav>
+
             <div
                 style={{
-                    marginTop: 32,
+                    marginTop: 28,
                     paddingTop: 20,
                     borderTop: '1px solid rgba(0,0,0,.08)',
                     width: '100%',
-                    maxWidth: 560,
+                    maxWidth: 640,
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
@@ -139,8 +145,12 @@ export function SiteFooter() {
                 }}
             >
                 <img src="/assets/sparkEd_logo.webp" alt="" style={{ width: 20, height: 20, display: 'block' }} />
-                <span style={{ fontWeight: 700, fontSize: 13 }}>SparkEdu</span>
-                <span style={{ fontSize: 12 }}>© 2026</span>
+                <span style={{ fontSize: 12 }}>© 2026 <strong>{COMPANY.legalName}</strong>. All rights reserved.</span>
+            </div>
+            <div className="footer-legal">
+                {COMPANY.brand} and {COMPANY.product} are brands of {COMPANY.legalName}. GSTIN: {COMPANY.gstin}
+                <br />
+                Registered office: {COMPANY_ADDRESS}
             </div>
         </div>
     );

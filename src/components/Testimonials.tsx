@@ -1,7 +1,7 @@
 import { SectionSquiggle } from './SectionSquiggle';
 
-// Placeholder reviewers until real profiles/links are ready — swap in actual names,
-// avatars, and the tcard-link back in once we have them.
+// Real comments, shown without names until we have reviewers' permission to attribute them.
+// Don't add invented names back — payment-gateway risk reviews flag dummy testimonials.
 const AVATAR_COLORS = [
     'var(--primary)',
     'var(--accent)',
@@ -11,24 +11,16 @@ const AVATAR_COLORS = [
     'oklch(58% 0.15 80)',
 ];
 
-function initials(name: string): string {
-    return name
-        .split(' ')
-        .map(part => part[0])
-        .join('')
-        .toUpperCase();
-}
-
 const TESTIMONIALS = [
-    { name: 'Priya Nair', quote: 'Congratulations on your videos. Clear explanations and extremely well-made animations.' },
-    { name: 'Marcus Chen', quote: 'Incredible video, simple explanation combined with a fluid animation.' },
-    { name: 'Elena Ortiz', quote: 'Finally a way to record a full proof without switching between three apps.' },
-    { name: 'Devon Brooks', quote: 'My students actually watch these before class now instead of skimming the textbook.' },
-    { name: 'Aisha Patel', quote: "Made a TikTok explainer in one lunch break — never thought I'd say that about a proof." },
-    { name: 'Sam Whitfield', quote: 'Feels exactly like drawing on my classroom whiteboard, just recorded.' },
-    { name: 'Kenji Watanabe', quote: 'Our comments went from confused questions to "wait this actually makes sense."' },
-    { name: 'Grace Okafor', quote: 'Exported straight to 9:16 for Instagram — no re-editing needed at all.' },
-    { name: 'Liam Fitzgerald', quote: "Wish I'd had this in college — the animation makes the geometry click instantly." },
+    'Congratulations on your videos. Clear explanations and extremely well-made animations.',
+    'Incredible video, simple explanation combined with a fluid animation.',
+    'Finally a way to record a full proof without switching between three apps.',
+    'My students actually watch these before class now instead of skimming the textbook.',
+    "Made a TikTok explainer in one lunch break — never thought I'd say that about a proof.",
+    'Feels exactly like drawing on my classroom whiteboard, just recorded.',
+    'Our comments went from confused questions to "wait this actually makes sense."',
+    'Exported straight to 9:16 for Instagram — no re-editing needed at all.',
+    "Wish I'd had this in college — the animation makes the geometry click instantly.",
 ];
 
 export function Testimonials() {
@@ -49,15 +41,14 @@ export function Testimonials() {
             <div className="subhead">Real reactions from the students and audiences who watch these lessons.</div>
 
             <div className="tv-social testimonial-rail" style={{ marginTop: 44, maxWidth: 900, width: '100%' }}>
-                {TESTIMONIALS.map((t, i) => (
-                    <div className="tcard" key={t.name}>
+                {TESTIMONIALS.map((quote, i) => (
+                    <div className="tcard" key={quote}>
                         <div className="tcard-head">
-                            <div className="tcard-avatar" style={{ background: AVATAR_COLORS[i % AVATAR_COLORS.length] }}>
-                                {initials(t.name)}
+                            <div className="tcard-avatar" style={{ background: AVATAR_COLORS[i % AVATAR_COLORS.length], fontSize: 22, lineHeight: 1 }} aria-hidden="true">
+                                &ldquo;
                             </div>
-                            <div className="tcard-name">{t.name}</div>
                         </div>
-                        <div className="tcard-quote">{t.quote}</div>
+                        <div className="tcard-quote">{quote}</div>
                     </div>
                 ))}
             </div>

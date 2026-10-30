@@ -4,8 +4,9 @@ import { VideoShowcase } from '../components/VideoShowcase';
 import { HonestComparison } from '../components/HonestComparison';
 import { ContinuousFlow } from '../components/ContinuousFlow';
 import { AnySubject } from '../components/AnySubject';
-import { Testimonials } from '../components/Testimonials';
 import { Pricing } from '../components/Pricing';
+// <Testimonials /> ("Educators creating with SparkEdu") is hidden for now. Re-add it above
+// <Pricing /> with: import { Testimonials } from '../components/Testimonials';
 
 export function HomePage() {
     return (
@@ -18,7 +19,6 @@ export function HomePage() {
             <HonestComparison />
             <ContinuousFlow />
             <AnySubject />
-            <Testimonials />
             <Pricing />
         </>
     );

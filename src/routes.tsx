@@ -2,6 +2,12 @@ import type { RouteRecord } from 'vite-react-ssg';
 import { MarketingLayout } from './pages/MarketingLayout';
 import { HomePage } from './pages/HomePage';
 import { AboutPage } from './pages/AboutPage';
+import { TermsPage } from './pages/legal/TermsPage';
+import { PrivacyPage } from './pages/legal/PrivacyPage';
+import { RefundPolicyPage } from './pages/legal/RefundPolicyPage';
+import { CancellationPolicyPage } from './pages/legal/CancellationPolicyPage';
+import { ShippingPolicyPage } from './pages/legal/ShippingPolicyPage';
+import { ContactPage } from './pages/legal/ContactPage';
 import { guideDocs, guideIndexDoc, isRoutableDoc, type GuideDoc } from './lib/guideContent';
 
 // react-markdown/remark-gfm/rehype-raw and all the Guide's rendering components only load
@@ -32,6 +38,12 @@ export const routes: RouteRecord[] = [
         children: [
             { index: true, element: <HomePage /> },
             { path: 'about', element: <AboutPage /> },
+            { path: 'contact', element: <ContactPage /> },
+            { path: 'terms', element: <TermsPage /> },
+            { path: 'privacy', element: <PrivacyPage /> },
+            { path: 'refund-policy', element: <RefundPolicyPage /> },
+            { path: 'cancellation-policy', element: <CancellationPolicyPage /> },
+            { path: 'shipping-policy', element: <ShippingPolicyPage /> },
         ],
     },
     {

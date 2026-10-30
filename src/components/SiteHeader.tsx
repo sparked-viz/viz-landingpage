@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { trackCTAClick } from '../analytics';
+import { COMPANY } from '../content/company';
 
 interface SiteHeaderProps {
     activePage: 'home' | 'about';
@@ -24,12 +26,11 @@ export function SiteHeader({ activePage }: SiteHeaderProps) {
             <div className={`nav-links${open ? ' open' : ''}`} id="navLinks" style={{ fontWeight: 500 }}>
                 <Link className="nav-link" to="/" onClick={close}>Home</Link>
                 <Link className="nav-link" to="/about" onClick={close} style={aboutLinkStyle}>About Us</Link>
+                <a className="nav-link" href="/#pricing" onClick={close}>Pricing</a>
                 <Link className="nav-link" to="/guide" onClick={close}>Guide</Link>
-                {activePage === 'about' ? (
-                    <a className="nav-link" href="#contact" onClick={close}>Contact</a>
-                ) : (
-                    <Link className="nav-link" to="/about#contact" onClick={close}>Contact</Link>
-                )}
+                <Link className="nav-link" to="/contact" onClick={close}>Contact</Link>
+                <a className="nav-link" href={COMPANY.appUrl} onClick={() => { close(); trackCTAClick('Log In', 'header'); }}>Log in</a>
+                <a className="nav-signup" href={COMPANY.appUrl} onClick={() => { close(); trackCTAClick('Sign Up', 'header'); }}>Sign up</a>
             </div>
 
             <button

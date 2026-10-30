@@ -8,12 +8,6 @@ const FOUNDERS = [
         linkedin: 'https://www.linkedin.com/in/koustub-s-kulkarni-278b9a1b9/',
     },
     {
-        photo: '/assets/founder-3.png',
-        name: 'Dr. Cristiano Benjamin',
-        bio: 'Professor, UFOP (Universidade Federal de Ouro Preto) · Senior Full-Stack Architect · Creator of Matematizar',
-        linkedin: 'https://www.linkedin.com/in/cristianobenjamin/',
-    },
-    {
         photo: '/assets/founder-2.png',
         name: 'Prajwal V Sangam',
         bio: 'IIT Bhubaneswar · Ex-Orangewood Labs (YC 2018) · Ex-TCS Research & Innovation',
