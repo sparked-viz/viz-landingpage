@@ -47,7 +47,6 @@ const no: PlanCell = { text: '—', tone: 'no' };
 
 export const PLAN_FEATURES: { feature: string; free: PlanCell; pro: PlanCell }[] = [
     { feature: 'Projects', free: plain('Unlimited local projects'), pro: yes('Unlimited projects + cloud') },
-    { feature: 'Folders', free: plain('Up to 3 folders'), pro: yes('Unlimited folders') },
     { feature: 'Creation tools', free: yes('Full access'), pro: yes('Full access') },
     { feature: 'Animations', free: yes('Full access'), pro: yes('Full access') },
     { feature: 'LaTeX', free: yes('Included'), pro: yes('Included') },
@@ -55,6 +54,7 @@ export const PLAN_FEATURES: { feature: string; free: PlanCell; pro: PlanCell }[]
     { feature: 'Project file import/export', free: yes('Included'), pro: yes('Included') },
     { feature: 'Cloud backup & sync', free: no, pro: yes('Included') },
     { feature: 'Access across devices', free: no, pro: yes('Included') },
+    { feature: 'Share projects with students', free: no, pro: yes('Included') },
     { feature: 'Video export', free: plain('Up to 720p'), pro: yes('1080p & 4K') },
     // A watermark is a limitation, so Free's "Included" deliberately gets no check mark.
     { feature: 'Viz watermark', free: plain('Included'), pro: yes('Removed') },

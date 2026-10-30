@@ -31,8 +31,8 @@ export function CancellationPolicyPage() {
                 <li>Automatic renewal stops and no further charges are made.</li>
                 <li>You keep full Pro access until the end of the current paid billing period.</li>
                 <li>
-                    After that, your account moves to the Free plan: cloud backup &amp; sync, access across devices, AI features, 1080p/4K export and watermark-free
-                    export stop, and the Free plan's folder limit applies. We do not delete your projects because you cancelled; download anything you need from the cloud
+                    After that, your account moves to the Free plan: cloud backup &amp; sync, access across devices, sharing projects with students, AI features,
+                    1080p/4K export and watermark-free export stop. We do not delete your projects because you cancelled; download anything you need from the cloud
                     before your Pro period ends. You can re-subscribe at any time.
                 </li>
                 <li>Cancelling does not refund the current billing period. Refunds are covered by our <Link to="/refund-policy">Refund Policy</Link>.</li>

@@ -43,11 +43,11 @@ export function TermsPage() {
             <h2>4. Plans and pricing</h2>
             <ul>
                 <li>
-                    <strong>Free</strong> — no charge. Includes unlimited local projects, up to 3 folders, full creation and animation tools, LaTeX, presentation mode,
+                    <strong>Free</strong> — no charge. Includes unlimited local projects, full creation and animation tools, LaTeX, presentation mode,
                     project file import/export and video export up to 720p with a {COMPANY.product} watermark.
                 </li>
                 <li>
-                    <strong>Pro</strong> — a paid monthly subscription. Adds cloud backup &amp; sync, access across devices, unlimited folders, 1080p and 4K video export
+                    <strong>Pro</strong> — a paid monthly subscription. Adds cloud backup &amp; sync, access across devices, sharing projects with your students, 1080p and 4K video export
                     without the watermark, and AI features.
                 </li>
             </ul>
