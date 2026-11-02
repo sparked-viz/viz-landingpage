@@ -20,7 +20,7 @@ export const COMPANY = {
 
 export const COMPANY_ADDRESS = COMPANY.addressLines.join(', ');
 
-export const POLICIES_LAST_UPDATED = 'October 1, 2026';
+export const POLICIES_LAST_UPDATED = 'November 2, 2026';
 
 export const LEGAL_LINKS = [
     { to: '/terms', label: 'Terms & Conditions' },

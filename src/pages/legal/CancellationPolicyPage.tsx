@@ -35,7 +35,7 @@ export function CancellationPolicyPage() {
                     1080p/4K export and watermark-free export stop. We do not delete your projects because you cancelled; download anything you need from the cloud
                     before your Pro period ends. You can re-subscribe at any time.
                 </li>
-                <li>Cancelling does not refund the current billing period. Refunds are covered by our <Link to="/refund-policy">Refund Policy</Link>.</li>
+                <li>Cancelling does not by itself refund the current billing period. If you cancel within 14 days of your first payment, you can ask for a full refund under the money-back guarantee in our <Link to="/refund-policy">Refund Policy</Link>.</li>
             </ul>
 
             <h2>3. Payment mandates</h2>

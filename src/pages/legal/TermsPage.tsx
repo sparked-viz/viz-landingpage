@@ -76,8 +76,8 @@ export function TermsPage() {
 
             <h2>6. Cancellation, refunds and delivery</h2>
             <p>
-                You can cancel at any time; see our <Link to="/cancellation-policy">Cancellation &amp; Return Policy</Link>. Refunds are issued only for failed, duplicate or incorrect
-                charges, as set out in our <Link to="/refund-policy">Refund Policy</Link>. Paid plans are activated online immediately after successful payment, as described in our{' '}
+                You can cancel at any time; see our <Link to="/cancellation-policy">Cancellation &amp; Return Policy</Link>. New Pro subscriptions come with a 14-day money-back guarantee; after that,
+                refunds are issued for failed, duplicate or incorrect charges, as set out in our <Link to="/refund-policy">Refund Policy</Link>. Paid plans are activated online immediately after successful payment, as described in our{' '}
                 <Link to="/shipping-policy">Shipping &amp; Delivery Policy</Link>.
             </p>
 

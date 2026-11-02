@@ -9,7 +9,8 @@ export function RefundPolicyPage() {
             kicker="clear rules, no surprises"
             summary={
                 <ul>
-                    <li>Subscription payments are <strong>non-refundable</strong>, except for <strong>failed, duplicate or incorrect charges</strong>.</li>
+                    <li><strong>14-day money-back guarantee:</strong> new Pro subscriptions get a <strong>full refund within 14 days</strong> of the first payment, no questions asked.</li>
+                    <li>After that, renewal payments are refunded for <strong>failed, duplicate or incorrect charges</strong>.</li>
                     <li>Approved refunds are initiated within <strong>2 business days</strong> and credited within <strong>5–7 business days</strong> after that.</li>
                     <li>Refunds always go back to the <strong>original payment method</strong> (the same card, UPI ID, bank account or wallet).</li>
                 </ul>
@@ -23,6 +24,8 @@ export function RefundPolicyPage() {
 
             <h2>2. When you are eligible for a refund</h2>
             <ul>
+                <li><strong>14-day money-back guarantee:</strong> if you are not satisfied with Pro, you can request a full refund within 14 days of your first payment for a new
+                    subscription, for any reason and with no questions asked. Your plan returns to Free once the refund is processed. This applies once per customer.</li>
                 <li><strong>Duplicate payment:</strong> you were charged more than once for the same plan and billing period.</li>
                 <li><strong>Failed transaction:</strong> money was debited from your account but the payment failed, or your paid plan was not activated and we could not activate it within 48 hours of you reporting it.</li>
                 <li><strong>Incorrect amount:</strong> you were charged more than the price and taxes shown on the checkout page. We refund the difference.</li>
@@ -31,16 +34,15 @@ export function RefundPolicyPage() {
 
             <h2>3. What is not refundable</h2>
             <ul>
-                <li>Subscription fees for a billing period that has started and in which your plan was activated, including partly used months.</li>
+                <li>Renewal payments (after your first payment) for a billing period that has started, including partly used months, unless the charge was failed, duplicate or incorrect.</li>
                 <li>Automatic renewals that were charged because the subscription was not cancelled before the renewal date (you receive a pre-debit notification before each renewal).</li>
-                <li>Change of mind, unused features or lessons, or not using the service during a paid period.</li>
                 <li>Accounts suspended or terminated for breach of our <Link to="/terms">Terms &amp; Conditions</Link>.</li>
             </ul>
             <p>The Free plan has no charge, so no payment or refund applies to it.</p>
 
             <h2>4. How to request a refund</h2>
             <p>
-                Email <a href={`mailto:${COMPANY.email}`}>{COMPANY.email}</a> from your registered email address within <strong>30 days</strong> of the transaction, with the subject
+                Email <a href={`mailto:${COMPANY.email}`}>{COMPANY.email}</a> from your registered email address with the subject
                 "Refund request", and include:
             </p>
             <ul>
@@ -49,6 +51,10 @@ export function RefundPolicyPage() {
                 <li>the date and amount of the payment; and</li>
                 <li>a short description of the problem (a screenshot of the bank or UPI statement helps for duplicate or failed charges).</li>
             </ul>
+            <p>
+                Money-back requests must reach us within <strong>14 days</strong> of your first payment. Requests about failed, duplicate or incorrect charges must reach us within{' '}
+                <strong>30 days</strong> of the transaction.
+            </p>
 
             <h2>5. Refund timelines (TAT)</h2>
             <table className="legal-table">

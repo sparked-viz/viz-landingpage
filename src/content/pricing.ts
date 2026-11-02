@@ -27,14 +27,14 @@ export const REGION_PRICING: Record<PricingRegion, RegionPricing> = {
         currency: 'BRL',
         locale: 'pt-BR',
         proMonthly: 39,
-        taxNote: 'billed monthly in BRL',
+        taxNote: 'billed monthly in BRL · local taxes calculated at checkout',
     },
     INTL: {
         label: '$ USD',
         currency: 'USD',
         locale: 'en-US',
         proMonthly: 8,
-        taxNote: 'billed monthly in USD',
+        taxNote: 'billed monthly in USD · local taxes calculated at checkout',
     },
 };
 
