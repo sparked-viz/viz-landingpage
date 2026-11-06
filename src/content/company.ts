@@ -9,7 +9,7 @@ export const COMPANY = {
     entity: 'a limited liability partnership registered in India',
     // GSTIN and address exactly as on the GST registration certificate (Form GST REG-06, issued 02/04/2026).
     gstin: '29AFWFS9899G1ZH',
-    addressLines: ['P. No. 198, Sy No. 17, 1st Biddapur', 'Hirapur, Kalaburagi', 'Karnataka – 585103, India'],
+    addressLines: ['P.NO.198 SY NO.17, 1ST BIDDAPUR', 'Hirapur, Kalaburagi', 'Karnataka 585103, India'],
     email: 'sparkedutechnologies@gmail.com',
     phone: { display: '+91 93806 68711', tel: '+919380668711' },
     supportHours: 'Monday to Friday, 10:00 AM – 6:00 PM IST (excluding public holidays)',
