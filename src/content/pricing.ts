@@ -19,7 +19,7 @@ export const REGION_PRICING: Record<PricingRegion, RegionPricing> = {
         label: '₹ INR',
         currency: 'INR',
         locale: 'en-IN',
-        proMonthly: 700,
+        proMonthly: 699,
         taxNote: 'incl. 18% GST · billed monthly in INR',
     },
     BR: {
@@ -58,7 +58,7 @@ export const PLAN_FEATURES: { feature: string; free: PlanCell; pro: PlanCell }[]
     { feature: 'Video export', free: plain('Up to 720p'), pro: yes('1080p & 4K') },
     // A watermark is a limitation, so Free's "Included" deliberately gets no check mark.
     { feature: 'Viz watermark', free: plain('Included'), pro: yes('Removed') },
-    { feature: 'AI features', free: no, pro: yes('Included') },
+    { feature: 'AI features', free: no, pro: yes('100 AI credits per month') },
 ];
 
 export const PRICING_REGIONS = Object.keys(REGION_PRICING) as PricingRegion[];
